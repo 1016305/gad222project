@@ -1,0 +1,114 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtj0qv3fmmrik"]
+
+[ext_resource type="Script" path="res://scripts/player/playercontroller.gd" id="1_ve6k1"]
+[ext_resource type="Script" path="res://scripts/player/flashlight_control.gd" id="2_6q6cu"]
+[ext_resource type="Script" path="res://scripts/player/interact_raycast.gd" id="3_elrys"]
+[ext_resource type="AudioStream" uid="uid://b4ta3shtb4rvc" path="res://assets/sounds/light-switch-81967.mp3" id="3_vpqoh"]
+[ext_resource type="Texture2D" uid="uid://c7e74hrqpbhwi" path="res://assets/textures/UI/CROSS.svg" id="4_r3k3k"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_il2d2"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yjqeq"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3sia6"]
+
+[node name="player" type="CharacterBody3D"]
+collision_layer = 2
+script = ExtResource("1_ve6k1")
+
+[node name="stand_collider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_il2d2")
+
+[node name="crouch_check" type="RayCast3D" parent="stand_collider"]
+target_position = Vector3(0, 2.05, 0)
+
+[node name="Head" type="Node3D" parent="stand_collider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+
+[node name="Camera3D" type="Camera3D" parent="stand_collider/Head"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="stand_collider/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.240678, 0.116269)
+light_color = Color(1, 0.8695, 0.71, 1)
+light_energy = 5.576
+shadow_enabled = true
+spot_range = 20.0
+spot_attenuation = 2.0
+spot_angle = 34.56
+script = ExtResource("2_6q6cu")
+
+[node name="InteractRaycast" type="RayCast3D" parent="stand_collider/Head"]
+target_position = Vector3(0, 0, -2)
+script = ExtResource("3_elrys")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stand_collider"]
+visible = false
+mesh = SubResource("CapsuleMesh_yjqeq")
+
+[node name="lean_check" type="ShapeCast3D" parent="stand_collider"]
+transform = Transform3D(0.7, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_3sia6")
+target_position = Vector3(-1.3, -1, 0)
+
+[node name="coyote_timer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="edge_friction_check" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01012, 0)
+target_position = Vector3(0, -1.05, -1.05)
+hit_from_inside = true
+
+[node name="player_sounds" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_vpqoh")
+volume_db = -20.0
+pitch_scale = 1.5
+
+[node name="UI_Crosshair" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -338.0
+offset_top = -338.0
+offset_right = 338.0
+offset_bottom = 338.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI_Crosshair"]
+modulate = Color(1, 0, 0.65, 1)
+self_modulate = Color(0.816667, 0, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 11.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_r3k3k")
+expand_mode = 1
+
+[node name="Prompt" type="Label" parent="UI_Crosshair"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = 31.0
+offset_right = 81.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You are looking at something."

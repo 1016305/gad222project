@@ -1,0 +1,285 @@
+[gd_scene load_steps=9 format=3 uid="uid://dq7sb1chon16w"]
+
+[ext_resource type="Script" path="res://scripts/UI/main_menu_camera_animate.gd" id="1_c4ixo"]
+[ext_resource type="Texture2D" uid="uid://lq7pkgn0plbv" path="res://assets/textures/texture_07.png" id="1_nqtix"]
+[ext_resource type="Material" uid="uid://d30lclecniufh" path="res://assets/materials/devmat_orange.tres" id="2_od0y5"]
+[ext_resource type="Script" path="res://scripts/UI/main_menu.gd" id="3_3bl10"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kuyfr"]
+sky_top_color = Color(0.265511, 0.42656, 0.555605, 1)
+sky_horizon_color = Color(0.590313, 0.655563, 0.684986, 1)
+ground_bottom_color = Color(0.0957405, 0.195693, 0.184339, 1)
+ground_horizon_color = Color(0.590313, 0.655563, 0.684986, 1)
+
+[sub_resource type="Sky" id="Sky_bc2il"]
+sky_material = SubResource("ProceduralSkyMaterial_kuyfr")
+
+[sub_resource type="Environment" id="Environment_n7ido"]
+background_mode = 2
+sky = SubResource("Sky_bc2il")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2mqit"]
+albedo_texture = ExtResource("1_nqtix")
+uv1_triplanar = true
+
+[node name="world" type="Node3D"]
+script = ExtResource("1_c4ixo")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n7ido")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.996345, -0.0854169, -1.18203e-09, -0.0452502, 0.527821, 0.84815, -0.0724463, 0.845049, -0.529757, 0, 0, 0)
+shadow_enabled = true
+
+[node name="stage" type="Node3D" parent="."]
+
+[node name="Boundaries" type="Node3D" parent="stage"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="stage/Boundaries"]
+transform = Transform3D(1.01714, 0, 0, 0, 1.01714, 0, 0, 0, 1.01714, 4.06855, 0, 0)
+use_collision = true
+size = Vector3(24, 0.5, 32)
+material = SubResource("StandardMaterial3D_2mqit")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="stage/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.70826, 1.95564, -0.020752)
+use_collision = true
+size = Vector3(1, 3.37744, 32.3843)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="stage/Boundaries"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7358, 1.95564, -0.020752)
+use_collision = true
+size = Vector3(1, 3.37744, 32.3843)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="stage/Boundaries"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.13693, 1.95564, -15.72)
+use_collision = true
+size = Vector3(1, 3.37744, 22.7045)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="stage/Boundaries"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.13693, 1.95564, 15.6453)
+use_collision = true
+size = Vector3(1, 3.37744, 22.7045)
+material = ExtResource("2_od0y5")
+
+[node name="Obstacles" type="Node3D" parent="stage"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95822, 0.767483, 0)
+use_collision = true
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.74215, 1.36113, 0)
+use_collision = true
+size = Vector3(1, 2.1873, 1)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.43117, 1.80785, 0)
+use_collision = true
+size = Vector3(1, 3.08073, 1)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6789, 1.80785, 0)
+use_collision = true
+size = Vector3(1, 3.08073, 1)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.64471, 1.80785, -7.62687)
+use_collision = true
+size = Vector3(7.06836, 3.08073, 3.06543)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59576, 0.921944, 4.48593)
+use_collision = true
+size = Vector3(1.0769, 1.30892, 7)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.134215, 0.921944, 7.48593)
+use_collision = true
+size = Vector3(6, 1.30892, 1)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.458549, 0.921944, 3.40628)
+use_collision = true
+size = Vector3(1.0769, 1.30892, 4.8407)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05581, 0.921944, 5.40976)
+use_collision = true
+size = Vector3(4, 1.30892, 0.847656)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.51525, 2.86192, 4.48593)
+use_collision = true
+size = Vector3(3.19031, 2.59636, 7)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3896, 2.86192, 6.48593)
+use_collision = true
+size = Vector3(3, 2.59636, 3)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122678, 4.48188, -7.68741)
+use_collision = true
+size = Vector3(6.58875, 0.252769, 2.94434)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8021, 5.02137, -3.06528)
+use_collision = true
+size = Vector3(2.7392, 0.829021, 6.34119)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8021, 7.07581, -4.1442)
+use_collision = true
+size = Vector3(2.7392, 0.829021, 4.18335)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8021, 5.87338, 2.55146)
+use_collision = true
+size = Vector3(2.7392, 0.829021, 6.34119)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8021, 4.27423, 8.99966)
+use_collision = true
+size = Vector3(2.7392, 0.829021, 1.96796)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34064, 4.27423, 9.03942)
+use_collision = true
+size = Vector3(5.63994, 0.829021, 0.110947)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11658, 4.27423, 10.1357)
+use_collision = true
+size = Vector3(0.0880489, 0.829021, 2.30352)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25967, 4.27423, 11.2304)
+use_collision = true
+size = Vector3(4.37422, 0.829021, 0.11421)
+material = ExtResource("2_od0y5")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8021, 7.92782, -1.35052)
+use_collision = true
+size = Vector3(2.7392, 0.829021, 9.82947)
+material = ExtResource("2_od0y5")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8702, 2, 6.808)
+use_collision = true
+height = 4.0
+sides = 12
+material = ExtResource("2_od0y5")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.87024, 2, 6.808)
+use_collision = true
+height = 4.0
+sides = 12
+material = ExtResource("2_od0y5")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.87024, 2, 6.808)
+use_collision = true
+height = 4.0
+sides = 12
+material = ExtResource("2_od0y5")
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87024, 2, 6.808)
+use_collision = true
+height = 4.0
+sides = 12
+material = ExtResource("2_od0y5")
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8702, 2, 3.808)
+use_collision = true
+height = 4.0
+sides = 12
+material = ExtResource("2_od0y5")
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.87024, 2, 3.808)
+use_collision = true
+height = 4.0
+sides = 12
+material = ExtResource("2_od0y5")
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.87024, 2, 3.808)
+use_collision = true
+height = 4.0
+sides = 12
+material = ExtResource("2_od0y5")
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="stage/Obstacles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.87024, 2, 3.808)
+use_collision = true
+height = 4.0
+sides = 12
+material = ExtResource("2_od0y5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -92.0
+offset_right = 176.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("3_3bl10")
+
+[node name="NewGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "Start"
+
+[node name="LoadGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "Load"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 37
+text = "Quit"
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 0.809622, 0.586952, 0, -0.586952, 0.809622, 5.42303, 19.8343, 30.116)
+
+[connection signal="pressed" from="VBoxContainer/NewGameButton" to="VBoxContainer" method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="VBoxContainer" method="_on_quit_button_pressed"]
