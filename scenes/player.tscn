@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtj0qv3fmmrik"]
+[gd_scene load_steps=10 format=3 uid="uid://dtj0qv3fmmrik"]
 
 [ext_resource type="Script" path="res://scripts/player/playercontroller.gd" id="1_ve6k1"]
 [ext_resource type="Script" path="res://scripts/player/flashlight_control.gd" id="2_6q6cu"]
-[ext_resource type="Script" path="res://scripts/player/interact_raycast.gd" id="3_elrys"]
 [ext_resource type="AudioStream" uid="uid://b4ta3shtb4rvc" path="res://assets/sounds/light-switch-81967.mp3" id="3_vpqoh"]
+[ext_resource type="Script" path="res://scripts/player/raycast_interact_signals.gd" id="3_xqmyb"]
 [ext_resource type="Texture2D" uid="uid://c7e74hrqpbhwi" path="res://assets/textures/UI/CROSS.svg" id="4_r3k3k"]
+[ext_resource type="Script" path="res://scripts/UI/message_display_controller.gd" id="6_1t8vm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_il2d2"]
 
@@ -30,8 +31,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="stand_collider/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.240678, 0.116269)
-light_color = Color(1, 0.8695, 0.71, 1)
-light_energy = 5.576
+light_color = Color(1, 0.9055, 0.79, 1)
+light_energy = 8.849
 shadow_enabled = true
 spot_range = 20.0
 spot_attenuation = 2.0
@@ -40,7 +41,7 @@ script = ExtResource("2_6q6cu")
 
 [node name="InteractRaycast" type="RayCast3D" parent="stand_collider/Head"]
 target_position = Vector3(0, 0, -2)
-script = ExtResource("3_elrys")
+script = ExtResource("3_xqmyb")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="stand_collider"]
 visible = false
@@ -112,3 +113,30 @@ offset_bottom = 54.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "You are looking at something."
+
+[node name="Message Panel" type="Panel" parent="UI_Crosshair"]
+visible = false
+layout_mode = 0
+offset_left = -135.0
+offset_top = -151.0
+offset_right = 839.0
+offset_bottom = 852.0
+script = ExtResource("6_1t8vm")
+
+[node name="Message Text" type="RichTextLabel" parent="UI_Crosshair/Message Panel"]
+layout_mode = 0
+offset_right = 1001.0
+offset_bottom = 1001.0
+bbcode_enabled = true
+text = "[font_size=26][center] This is a test text. It should be large, legible, and readable. "
+
+[node name="Label" type="Label" parent="UI_Crosshair/Message Panel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 965.0
+offset_right = 230.0
+offset_bottom = 1006.0
+theme_override_font_sizes/font_size = 25
+text = "[Press \"E\" to close]"
+
+[connection signal="on_interact_interactable" from="stand_collider/Head/InteractRaycast" to="UI_Crosshair/Message Panel" method="_on_interact_raycast_on_interact_interactable"]

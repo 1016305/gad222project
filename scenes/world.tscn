@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhawo2tt7hdh"]
+[gd_scene load_steps=10 format=3 uid="uid://bhawo2tt7hdh"]
 
 [ext_resource type="Texture2D" uid="uid://lq7pkgn0plbv" path="res://assets/textures/texture_07.png" id="1_d551r"]
 [ext_resource type="Material" uid="uid://d30lclecniufh" path="res://assets/materials/devmat_orange.tres" id="2_rx6k8"]
 [ext_resource type="PackedScene" uid="uid://dtj0qv3fmmrik" path="res://scenes/player.tscn" id="2_wqck2"]
 [ext_resource type="PackedScene" uid="uid://bsofxndk5pe3g" path="res://scenes/button.tscn" id="3_0wb4d"]
+[ext_resource type="Script" path="res://scripts/interactable/object_to_display_text.gd" id="4_3ascu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tcjux"]
 
@@ -73,117 +74,19 @@ use_collision = true
 material = ExtResource("2_rx6k8")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.74215, 1.36113, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.72172, 0.767483, 0)
 use_collision = true
-size = Vector3(1, 2.1873, 1)
 material = ExtResource("2_rx6k8")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.43117, 1.80785, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.53304, 0.767483, 0)
 use_collision = true
-size = Vector3(1, 3.08073, 1)
-material = ExtResource("2_rx6k8")
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.6789, 1.80785, 0)
-use_collision = true
-size = Vector3(1, 3.08073, 1)
 material = ExtResource("2_rx6k8")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="stage/Obstacles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.64471, 1.80785, -7.62687)
 use_collision = true
 size = Vector3(7.06836, 3.08073, 3.06543)
-material = ExtResource("2_rx6k8")
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59576, 0.921944, 4.48593)
-use_collision = true
-size = Vector3(1.0769, 1.30892, 7)
-material = ExtResource("2_rx6k8")
-
-[node name="CSGBox3D18" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.134215, 0.921944, 7.48593)
-use_collision = true
-size = Vector3(6, 1.30892, 1)
-material = ExtResource("2_rx6k8")
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.458549, 0.921944, 3.40628)
-use_collision = true
-size = Vector3(1.0769, 1.30892, 4.8407)
-material = ExtResource("2_rx6k8")
-
-[node name="CSGBox3D19" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05581, 0.921944, 5.40976)
-use_collision = true
-size = Vector3(4, 1.30892, 0.847656)
-material = ExtResource("2_rx6k8")
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.51525, 2.86192, 4.48593)
-use_collision = true
-size = Vector3(3.19031, 2.59636, 7)
-material = ExtResource("2_rx6k8")
-
-[node name="CSGBox3D20" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3896, 2.86192, 6.48593)
-use_collision = true
-size = Vector3(3, 2.59636, 3)
-material = ExtResource("2_rx6k8")
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.122678, 4.48188, -7.68741)
-use_collision = true
-size = Vector3(6.58875, 0.252769, 2.94434)
-material = ExtResource("2_rx6k8")
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8021, 5.02137, -3.06528)
-use_collision = true
-size = Vector3(2.7392, 0.829021, 6.34119)
-material = ExtResource("2_rx6k8")
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8021, 7.07581, -4.1442)
-use_collision = true
-size = Vector3(2.7392, 0.829021, 4.18335)
-material = ExtResource("2_rx6k8")
-
-[node name="CSGBox3D12" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8021, 5.87338, 2.55146)
-use_collision = true
-size = Vector3(2.7392, 0.829021, 6.34119)
-material = ExtResource("2_rx6k8")
-
-[node name="CSGBox3D14" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8021, 4.27423, 8.99966)
-use_collision = true
-size = Vector3(2.7392, 0.829021, 1.96796)
-material = ExtResource("2_rx6k8")
-
-[node name="CSGBox3D15" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.34064, 4.27423, 9.03942)
-use_collision = true
-size = Vector3(5.63994, 0.829021, 0.110947)
-material = ExtResource("2_rx6k8")
-
-[node name="CSGBox3D16" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.11658, 4.27423, 10.1357)
-use_collision = true
-size = Vector3(0.0880489, 0.829021, 2.30352)
-material = ExtResource("2_rx6k8")
-
-[node name="CSGBox3D17" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.25967, 4.27423, 11.2304)
-use_collision = true
-size = Vector3(4.37422, 0.829021, 0.11421)
-material = ExtResource("2_rx6k8")
-
-[node name="CSGBox3D13" type="CSGBox3D" parent="stage/Obstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8021, 7.92782, -1.35052)
-use_collision = true
-size = Vector3(2.7392, 0.829021, 9.82947)
 material = ExtResource("2_rx6k8")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="stage/Obstacles"]
@@ -244,21 +147,17 @@ material = ExtResource("2_rx6k8")
 
 [node name="Interactables" type="Node3D" parent="stage"]
 
-[node name="Button" parent="stage/Interactables" instance=ExtResource("3_0wb4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.46222, 0.755298, 0)
-prompt_message = "tiorha;e"
-
-[node name="Button2" parent="stage/Interactables" instance=ExtResource("3_0wb4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65722, 0.755298, 0)
-prompt_message = "3/4 cube"
-
-[node name="Button3" parent="stage/Interactables" instance=ExtResource("3_0wb4d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0534593, 0.755298, 0)
-prompt_message = "trinagle"
-
 [node name="Button4" parent="stage/Interactables" instance=ExtResource("3_0wb4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95178, 0.755298, 0)
-prompt_message = "Tringle"
+script = ExtResource("4_3ascu")
+unique_message = "res://messages/TestMessage.txt"
+prompt_message = "Press \"E\" to Read"
+
+[node name="Button5" parent="stage/Interactables" instance=ExtResource("3_0wb4d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.317057, 0.755298, 0)
+script = ExtResource("4_3ascu")
+unique_message = "res://messages/text2.txt"
+prompt_message = "Press \"E\" to Read"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="stage"]
 transform = Transform3D(1, 0, 0, 0, -0.337046, 0.941488, 0, -0.941488, -0.337046, 9.1923, 10.8487, -8.91624)

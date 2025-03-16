@@ -1,13 +1,37 @@
 [gd_scene load_steps=4 format=3 uid="uid://bsofxndk5pe3g"]
 
-[ext_resource type="Script" path="res://scripts/interactable/button.gd" id="1_rup1d"]
+[sub_resource type="GDScript" id="GDScript_r01l5"]
+script/source = "extends Interactable
+
+@export var ui_text: Label
+@onready var message_panel: Panel = $\"UI_Crosshair/Message Panel\"
+@onready var message_text: RichTextLabel = $\"UI_Crosshair/Message Panel/Message Text\"
+
+var is_active: bool = false
+var message: String
+
+func _on_interacted(body):
+	display_message()
+
+func display_message():
+	message_panel.visible = true
+	message_text.text = message
+	#disable the player's ability to walk
+	pass
+
+func hide_message():
+	message_text.text = \"\"
+	message_panel.visible = false
+	#enable the player's ability to walk
+	pass
+"
 
 [sub_resource type="PrismMesh" id="PrismMesh_rehlv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7bx25"]
 
 [node name="Button" type="StaticBody3D"]
-script = ExtResource("1_rup1d")
+script = SubResource("GDScript_r01l5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PrismMesh_rehlv")
