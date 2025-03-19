@@ -1,0 +1,7 @@
+[color=gray][font_size=50]
+
+This is the first of many messages aboard the SPARS-2 that the player must find.
+
+Many are found on logs like this, although it is intended that this particular shade
+of blue contrasts with the environment, ensuring the player knows that anything
+matching the color will provide a text log.

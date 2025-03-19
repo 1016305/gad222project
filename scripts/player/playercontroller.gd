@@ -16,6 +16,7 @@ const NEW_GRAVITY = Vector3(0, -20, 0)
 var current_speed = 5.0: set = _set_current_speed, get = _get_current_speed
 var input_dir = Vector3.ZERO
 var direction = Vector3.ZERO
+var disable_movement: bool = true
 
 #Player movement variables
 @export var WALK_SPEED = 6.0
@@ -70,7 +71,8 @@ func _ready() -> void:
 	ray_cast_3d.target_position.y = crouch_depth + 0.2
 
 func _unhandled_input(event: InputEvent) -> void:
-	toggle_mouse()
+	#toggle_mouse()
+	
 	#Handles looking with mouse
 	if event is InputEventMouseMotion:
 		rotate_y(deg_to_rad(-event.relative.x * MOUSE_SENS))
@@ -100,10 +102,13 @@ func handle_gravity(delta):
 		velocity += NEW_GRAVITY * delta
 	# Get the input direction and handle the movement/deceleration.
 func handle_move(delta):
-	input_dir = Input.get_vector("left", "right", "forward", "backward")
-	#direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() #Without move drag/dampening.
-	direction = lerp(direction,(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta * MOVE_DRAG_SPEED) # includes move drag/dampening. Use if no edge friciton
-	
+	if disable_movement:
+		input_dir = Input.get_vector("left", "right", "forward", "backward")
+		#direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() #Without move drag/dampening.
+		direction = lerp(direction,(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta * MOVE_DRAG_SPEED) # includes move drag/dampening. Use if no edge friciton
+	else:
+		input_dir = Vector3.ZERO
+		direction = lerp(direction,(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized(), delta * MOVE_DRAG_SPEED)
 	if direction:
 		velocity.x = direction.x * _get_current_speed()
 		velocity.z = direction.z * _get_current_speed()
@@ -117,15 +122,16 @@ func handle_move(delta):
 func handle_crouch(delta):
 	var was_crouched_last_frame = is_crouching
 	var _crouch_cam_speed = CROUCH_CAM_SPEED
-	if Input.is_action_pressed("crouch"):
-		is_crouching = true
-		if is_on_floor(): #Waits to adjust the player's speed until they hit the floor. NB: try to fix FOV adjust to coincide with
-			is_sprinting = false
-			_set_current_speed(CROUCH_SPEED)
-	elif is_crouching and not self.test_move(self.global_transform, Vector3(0, crouch_depth, 0)): #checks if the player has enough room to uncrouch
-		is_crouching = false
-		_set_current_speed(WALK_SPEED)
-		_crouch_cam_speed*=2.5
+	if disable_movement:
+		if Input.is_action_pressed("crouch"):
+			is_crouching = true
+			if is_on_floor(): #Waits to adjust the player's speed until they hit the floor. NB: try to fix FOV adjust to coincide with
+				is_sprinting = false
+				_set_current_speed(CROUCH_SPEED)
+		elif is_crouching and not self.test_move(self.global_transform, Vector3(0, crouch_depth, 0)): #checks if the player has enough room to uncrouch
+			is_crouching = false
+			_set_current_speed(WALK_SPEED)
+			_crouch_cam_speed*=2.5
 	
 	var translate_y_if_possible := 0.0
 	if was_crouched_last_frame != is_crouching and not is_on_floor(): # check if the player was on the floor when the started the crouch
@@ -159,8 +165,9 @@ func handle_sprint(delta):
 			
 #Handle jump. Coyote timer added for additional jump leeway
 func handle_jump():
-	if Input.is_action_just_pressed("jump") and (is_on_floor() or !coyote_timer.is_stopped()):
-		velocity.y = JUMP_VELOCITY
+	if disable_movement:
+		if Input.is_action_just_pressed("jump") and (is_on_floor() or !coyote_timer.is_stopped()):
+			velocity.y = JUMP_VELOCITY
 
 #Edge friction slows the player down a little bit as they approach the edge of geometry. Only functions from the player's relative forward.
 #Disabled when the player is crouching or sprinting

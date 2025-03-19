@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://drhh8c73m42a4"]
+
+[ext_resource type="Script" path="res://scripts/UI/pause_menu.gd" id="1_lextn"]
+
+[sub_resource type="Theme" id="Theme_w7rg8"]
+default_font_size = 25
+
+[node name="pause_menu" type="Control"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lextn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -283.0
+offset_right = 283.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_w7rg8")
+alignment = 1
+
+[node name="Resume Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Resume"
+
+[node name="VolumeLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Volume
+"
+
+[node name="VolumeHSlider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Exit Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="pressed" from="VBoxContainer/Resume Button" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit Button" to="." method="_on_exit_button_pressed"]

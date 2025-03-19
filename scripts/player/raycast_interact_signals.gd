@@ -14,8 +14,10 @@ func _process(delta: float) -> void:
 			if Input.is_action_just_pressed("interact"):
 				content = collider.content
 				emit_signal("on_interact_interactable",content) #signal is sent to the player's message panel
-				if collider.trigger_next_zone:
-					pass #add behaviour for triggering next zone here
+				collider.iterate_prog_counter()
+				if collider.is_read == false:
+					collider.is_read = true
+					collider.change_color()
 	else:
 		prompt.text = ""
 

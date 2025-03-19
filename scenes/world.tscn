@@ -1,10 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://bhawo2tt7hdh"]
+[gd_scene load_steps=18 format=3 uid="uid://bhawo2tt7hdh"]
 
 [ext_resource type="Texture2D" uid="uid://lq7pkgn0plbv" path="res://assets/textures/texture_07.png" id="1_d551r"]
 [ext_resource type="Material" uid="uid://d30lclecniufh" path="res://assets/materials/devmat_orange.tres" id="2_rx6k8"]
 [ext_resource type="PackedScene" uid="uid://dtj0qv3fmmrik" path="res://scenes/player.tscn" id="2_wqck2"]
 [ext_resource type="PackedScene" uid="uid://bsofxndk5pe3g" path="res://scenes/button.tscn" id="3_0wb4d"]
 [ext_resource type="Script" path="res://scripts/interactable/object_to_display_text.gd" id="4_3ascu"]
+[ext_resource type="PackedScene" uid="uid://drhh8c73m42a4" path="res://scenes/pause_menu.tscn" id="6_8r2fa"]
+[ext_resource type="PackedScene" uid="uid://bp5yth7de0lv" path="res://assets/models/testlevel.glb" id="7_0lhiv"]
+[ext_resource type="PackedScene" uid="uid://bntcwvfbhi5ya" path="res://assets/models/testlevelROOF.glb" id="8_6bpav"]
+[ext_resource type="Material" uid="uid://d1l0yu3j77fbu" path="res://materials/textBehindMaterial.tres" id="8_ioksr"]
+[ext_resource type="Material" uid="uid://b6ald11ru50p7" path="res://materials/interactable_test_material.tres" id="9_nas50"]
+[ext_resource type="Script" path="res://scripts/game_controller.gd" id="10_rltan"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tcjux"]
 
@@ -15,6 +21,8 @@ sky_material = SubResource("ProceduralSkyMaterial_tcjux")
 background_mode = 2
 background_energy_multiplier = 0.4
 sky = SubResource("Sky_5vq7q")
+ambient_light_sky_contribution = 0.29
+ambient_light_energy = 0.3
 tonemap_mode = 2
 glow_enabled = true
 
@@ -22,7 +30,14 @@ glow_enabled = true
 albedo_texture = ExtResource("1_d551r")
 uv1_triplanar = true
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_vxfes"]
+size = Vector3(1, 0.0898438, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ta3n8"]
+
 [node name="world" type="Node3D"]
+
+[node name="pause_menu" parent="." instance=ExtResource("6_8r2fa")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n7ido")
@@ -151,12 +166,14 @@ material = ExtResource("2_rx6k8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95178, 0.755298, 0)
 script = ExtResource("4_3ascu")
 unique_message = "res://messages/TestMessage.txt"
+trigger_next_zone = false
 prompt_message = "Press \"E\" to Read"
 
 [node name="Button5" parent="stage/Interactables" instance=ExtResource("3_0wb4d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.317057, 0.755298, 0)
 script = ExtResource("4_3ascu")
 unique_message = "res://messages/text2.txt"
+trigger_next_zone = false
 prompt_message = "Press \"E\" to Read"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="stage"]
@@ -166,6 +183,243 @@ shadow_enabled = true
 spot_range = 17.729
 spot_attenuation = 1.29
 
+[node name="Greybox Test Level" type="Node3D" parent="stage"]
+
+[node name="stage" type="Node3D" parent="stage/Greybox Test Level"]
+
+[node name="testlevel" parent="stage/Greybox Test Level/stage" instance=ExtResource("7_0lhiv")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 28.2029, -18.1169)
+
+[node name="testlevelROOF" parent="stage/Greybox Test Level/stage" instance=ExtResource("8_6bpav")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 28.2029, -18.1169)
+
+[node name="DoorLabels" type="Node3D" parent="stage/Greybox Test Level"]
+
+[node name="DoorLabel01" type="CSGBox3D" parent="stage/Greybox Test Level/DoorLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60254, 30.0228, -7.87944)
+size = Vector3(0.354004, 0.528809, 1.96936)
+material = ExtResource("8_ioksr")
+
+[node name="Label3D" type="Label3D" parent="stage/Greybox Test Level/DoorLabels/DoorLabel01"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.181956, 0, -0.392666)
+text = "Storage"
+font_size = 50
+
+[node name="DoorLabel10" type="CSGBox3D" parent="stage/Greybox Test Level/DoorLabels"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.509642, 30.8406, -4.90297)
+size = Vector3(0.354004, 0.528809, 1.96936)
+material = ExtResource("8_ioksr")
+
+[node name="Label3D" type="Label3D" parent="stage/Greybox Test Level/DoorLabels/DoorLabel10"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.181956, 0, -0.392666)
+text = "Airlock
+"
+font_size = 50
+
+[node name="DoorLabel06" type="CSGBox3D" parent="stage/Greybox Test Level/DoorLabels"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.64386, 30.0228, -8.01219)
+size = Vector3(0.354004, 0.528809, 1.96936)
+material = ExtResource("8_ioksr")
+
+[node name="Label3D" type="Label3D" parent="stage/Greybox Test Level/DoorLabels/DoorLabel06"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.181956, 0, 0.00118065)
+modulate = Color(0.816932, 0.236108, 0, 1)
+text = "DOOR ERROR"
+font_size = 50
+
+[node name="DoorLabel07" type="CSGBox3D" parent="stage/Greybox Test Level/DoorLabels"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.64386, 30.0228, -13.9625)
+size = Vector3(0.354004, 0.528809, 1.96936)
+material = ExtResource("8_ioksr")
+
+[node name="Label3D" type="Label3D" parent="stage/Greybox Test Level/DoorLabels/DoorLabel07"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.181956, 0, 0.00118065)
+modulate = Color(0.816932, 0.236108, 0, 1)
+text = "DOOR ERROR"
+font_size = 50
+
+[node name="DoorLabel08" type="CSGBox3D" parent="stage/Greybox Test Level/DoorLabels"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.64386, 30.0228, -19.9546)
+size = Vector3(0.354004, 0.528809, 1.96936)
+material = ExtResource("8_ioksr")
+
+[node name="Label3D" type="Label3D" parent="stage/Greybox Test Level/DoorLabels/DoorLabel08"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.181956, 0, 0.00118065)
+modulate = Color(0.816932, 0.236108, 0, 1)
+text = "DOOR ERROR"
+font_size = 50
+
+[node name="DoorLabel09" type="CSGBox3D" parent="stage/Greybox Test Level/DoorLabels"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -1.64386, 30.0228, -26.0356)
+size = Vector3(0.354004, 0.528809, 1.96936)
+material = ExtResource("8_ioksr")
+
+[node name="Label3D" type="Label3D" parent="stage/Greybox Test Level/DoorLabels/DoorLabel09"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.181956, 0, 0.00118065)
+modulate = Color(0.816932, 0.236108, 0, 1)
+text = "DOOR ERROR"
+font_size = 50
+
+[node name="DoorLabel02" type="CSGBox3D" parent="stage/Greybox Test Level/DoorLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60254, 30.0228, -16.9804)
+size = Vector3(0.354004, 0.528809, 1.96936)
+material = ExtResource("8_ioksr")
+
+[node name="Label3D" type="Label3D" parent="stage/Greybox Test Level/DoorLabels/DoorLabel02"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.181956, 0, -0.0228748)
+text = "Administration"
+font_size = 50
+
+[node name="DoorLabel04" type="CSGBox3D" parent="stage/Greybox Test Level/DoorLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60254, 30.7757, -33.2058)
+size = Vector3(0.354004, 0.528809, 2.61954)
+material = ExtResource("8_ioksr")
+
+[node name="Label3D" type="Label3D" parent="stage/Greybox Test Level/DoorLabels/DoorLabel04"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.181956, 0, -0.0228748)
+text = "DECK 1: Admittance"
+font_size = 50
+
+[node name="DoorLabel05" type="CSGBox3D" parent="stage/Greybox Test Level/DoorLabels"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60254, 30.2009, -33.1986)
+size = Vector3(0.354004, 0.528809, 2.63382)
+material = ExtResource("8_ioksr")
+
+[node name="Label3D" type="Label3D" parent="stage/Greybox Test Level/DoorLabels/DoorLabel05"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.181956, 0, -0.0228748)
+text = "STAIRS DOWN: Deck 2"
+font_size = 50
+
+[node name="DoorLabel03" type="CSGBox3D" parent="stage/Greybox Test Level/DoorLabels"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.85013, 30.0228, -24.2385)
+size = Vector3(0.354004, 0.528809, 1.96936)
+material = ExtResource("8_ioksr")
+
+[node name="Label3D" type="Label3D" parent="stage/Greybox Test Level/DoorLabels/DoorLabel03"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.181956, 0, -0.0228748)
+text = "Captain's Office"
+font_size = 50
+
+[node name="props" type="Node3D" parent="stage/Greybox Test Level"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="stage/Greybox Test Level/props"]
+transform = Transform3D(0.928671, 0, 0, 0, 1, 0, 0, 0, 1, 7.8456, 29.5939, -8.14489)
+size = Vector3(3.22168, 2.74463, 1)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="stage/Greybox Test Level/props"]
+transform = Transform3D(0.928671, 0, 0, 0, 1, 0, 0, 0, 1, 7.11305, 28.6605, -18.7793)
+size = Vector3(1.64404, 0.877686, 3.40576)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="stage/Greybox Test Level/props"]
+transform = Transform3D(0.928671, 0, 0, 0, 1, 0, 0, 0, 1, 8.59153, 29.2183, -18.9409)
+size = Vector3(1.01782, 1.99341, 1.07742)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="stage/Greybox Test Level/props"]
+transform = Transform3D(-4.05935e-08, 0, 1, 0, 1, 0, -0.928671, 0, -4.37114e-08, 6.46254, 28.6605, -28.7655)
+size = Vector3(1.64404, 0.877686, 3.40576)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="stage/Greybox Test Level/props"]
+transform = Transform3D(-4.05935e-08, 0, 1, 0, 1, 0, -0.928671, 0, -4.37114e-08, 6.30088, 29.2183, -30.244)
+size = Vector3(1.01782, 1.99341, 1.07742)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="stage/Greybox Test Level/props"]
+transform = Transform3D(-4.05935e-08, 0, -1, 0, 1, 0, 0.928671, 0, -4.37114e-08, 9.90073, 29.5939, -9.91956)
+size = Vector3(3.22168, 2.74463, 1)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="stage/Greybox Test Level/props"]
+transform = Transform3D(0.928671, 0, 0, 0, 1, 0, 0, 0, 1, 4.66789, 29.5939, -8.14489)
+size = Vector3(3.22168, 2.74463, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="stage/Greybox Test Level/props"]
+transform = Transform3D(0.928671, 0, 0, 0, 1, 0, 0, 0, 1, 7.8456, 29.5939, -11.5457)
+size = Vector3(3.22168, 2.74463, 1)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="stage/Greybox Test Level/props"]
+transform = Transform3D(0.928671, 0, 0, 0, 1, 0, 0, 0, 1, 7.60368, 29.5939, -14.277)
+size = Vector3(5.69385, 2.74463, 1)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="stage/Greybox Test Level/props"]
+transform = Transform3D(0.928671, 0, 0, 0, 1, 0, 0, 0, 1, 9.80916, 29.5939, -22.2416)
+size = Vector3(0.944092, 2.74463, 2.46729)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="stage/Greybox Test Level/props"]
+transform = Transform3D(0.928671, 0, 0, 0, 1, 0, 0, 0, 1, 4.66789, 29.5939, -11.5457)
+size = Vector3(3.22168, 2.74463, 1)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="stage/Greybox Test Level/props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.769, 29.2996, -14.2421)
+sides = 12
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="stage/Greybox Test Level/props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.769, 29.2996, -23.4616)
+sides = 12
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="stage/Greybox Test Level/props"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.77673, 29.2996, -30.8941)
+sides = 12
+
+[node name="interactables" type="Node3D" parent="stage/Greybox Test Level"]
+
+[node name="Log_00" type="StaticBody3D" parent="stage/Greybox Test Level/interactables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03016, 29.1415, -18.6761)
+script = ExtResource("4_3ascu")
+unique_message = "res://messages/Deck_Test/Log_00.txt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/interactables/Log_00"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00390625, 0)
+shape = SubResource("BoxShape3D_vxfes")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/Greybox Test Level/interactables/Log_00"]
+transform = Transform3D(1, 0, 0, 0, 0.081507, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_ta3n8")
+surface_material_override/0 = ExtResource("9_nas50")
+
+[node name="Log_01" type="StaticBody3D" parent="stage/Greybox Test Level/interactables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.52743, 28.3049, -9.66978)
+script = ExtResource("4_3ascu")
+unique_message = "res://messages/Deck_Test/Log_01.txt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/interactables/Log_01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00390625, 0)
+shape = SubResource("BoxShape3D_vxfes")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/Greybox Test Level/interactables/Log_01"]
+transform = Transform3D(1, 0, 0, 0, 0.081507, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_ta3n8")
+surface_material_override/0 = ExtResource("9_nas50")
+
+[node name="Log_02_f" type="StaticBody3D" parent="stage/Greybox Test Level/interactables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75265, 29.1177, -28.6539)
+script = ExtResource("4_3ascu")
+unique_message = "res://messages/Deck_Test/Log_02.txt"
+trigger_next_zone = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/interactables/Log_02_f"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00390625, 0)
+shape = SubResource("BoxShape3D_vxfes")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/Greybox Test Level/interactables/Log_02_f"]
+transform = Transform3D(1, 0, 0, 0, 0.081507, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_ta3n8")
+surface_material_override/0 = ExtResource("9_nas50")
+
+[node name="game controller" type="Node3D" parent="stage/Greybox Test Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9847, 24.076, -36.8378)
+script = ExtResource("10_rltan")
+
+[node name="doors" type="Node3D" parent="stage/Greybox Test Level"]
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(0.928671, 0, 0, 0, 1, 0, 0, 0, 1, -0.0116496, 29.5939, -33.9088)
+size = Vector3(3.22168, 2.74463, 1)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="stage/Greybox Test Level/doors/CSGBox3D12"]
+transform = Transform3D(-1.07681, 0, 9.41375e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0125444, -0.47744, -3.83218)
+light_color = Color(0.0454133, 0.591735, 0.554705, 1)
+spot_range = 5.991
+
 [node name="player" parent="." instance=ExtResource("2_wqck2")]
-transform = Transform3D(0.046008, 0, 0.998941, 0, 1, 0, -0.998941, 0, 0.046008, 0.592, 0, -2.827)
+transform = Transform3D(0.046008, 0, 0.998941, 0, 1, 0, -0.998941, 0, 0.046008, 0.592, 28.3136, -2.827)
 WALK_SPEED = 4.0
+
+[connection signal="iterate_progression_counter" from="stage/Greybox Test Level/interactables/Log_02_f" to="stage/Greybox Test Level/game controller" method="_iterate_progression_counter"]

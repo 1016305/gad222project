@@ -1,0 +1,9 @@
+[color=gray][font_size=50]
+
+Another log that the player has found.
+
+Logs will change to green if the player has read them, to avoid confusion over any missed notes.
+
+Logs that signal the end of an area will include a message like this at the bottom.
+
+[color=00FFFF][font_size=12] ACCESS CODES FOR DECK ELEVATOR EMBEDDED IN MESSAGE
