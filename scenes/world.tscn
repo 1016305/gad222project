@@ -418,8 +418,30 @@ transform = Transform3D(-1.07681, 0, 9.41375e-08, 0, 1, 0, -8.74228e-08, 0, -1, 
 light_color = Color(0.0454133, 0.591735, 0.554705, 1)
 spot_range = 5.991
 
+[node name="SpotLight3D" type="SpotLight3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 6.14667, 29.7939, -29.0345)
+light_energy = 1.232
+light_indirect_energy = 2.195
+light_volumetric_fog_energy = 0.745
+shadow_enabled = true
+spot_range = 8.601
+spot_attenuation = -0.74
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.99211, 31.3835, -18.8163)
+light_energy = 0.652
+spot_attenuation = 0.42
+spot_angle = 18.91
+spot_angle_attenuation = 9.18958
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.99211, 31.3835, -9.61694)
+light_energy = 0.652
+spot_attenuation = 0.42
+spot_angle = 18.91
+spot_angle_attenuation = 9.18958
+
 [node name="player" parent="." instance=ExtResource("2_wqck2")]
 transform = Transform3D(0.046008, 0, 0.998941, 0, 1, 0, -0.998941, 0, 0.046008, 0.592, 28.3136, -2.827)
-WALK_SPEED = 4.0
 
 [connection signal="iterate_progression_counter" from="stage/Greybox Test Level/interactables/Log_02_f" to="stage/Greybox Test Level/game controller" method="_iterate_progression_counter"]

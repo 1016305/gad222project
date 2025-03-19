@@ -101,7 +101,7 @@ text = "Quit"
 transform = Transform3D(1, 0, 0, 0, 0.990075, 0.140538, 0, -0.140538, 0.990075, 5.42303, 19.8343, 30.116)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CameraPivot"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -17.9004, 13.0074, -0.0978041)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -18.6675, 13.0074, -0.0978041)
 light_energy = 1.812
 shadow_enabled = true
 shadow_bias = 0.0
@@ -111,7 +111,7 @@ spot_attenuation = 1.29
 spot_angle = 30.65
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="CameraPivot"]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 18.7778, 13.0074, -0.0978041)
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 18.0106, 13.0074, -0.0978041)
 light_energy = 1.812
 shadow_enabled = true
 shadow_bias = 0.0
@@ -121,7 +121,7 @@ spot_attenuation = 1.29
 spot_angle = 30.65
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="CameraPivot"]
-transform = Transform3D(-5.73206e-15, -1, -4.37114e-08, 1.31134e-07, -4.37114e-08, 1, -1, 0, 1.31134e-07, -0.226326, 28.6059, -0.0978041)
+transform = Transform3D(-5.73206e-15, -1, -4.37114e-08, 1.31134e-07, -4.37114e-08, 1, -1, 0, 1.31134e-07, -0.993507, 28.6059, -0.0978041)
 light_energy = 1.812
 shadow_enabled = true
 shadow_bias = 0.0
@@ -131,7 +131,7 @@ spot_attenuation = 1.29
 spot_angle = 30.65
 
 [node name="shipsilhouette" parent="." instance=ExtResource("4_ot318")]
-transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 2.09441, 12.8252, 0)
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 1.32723, 12.8252, 0)
 
 [connection signal="pressed" from="VBoxContainer/NewGameButton" to="VBoxContainer" method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="VBoxContainer" method="_on_quit_button_pressed"]

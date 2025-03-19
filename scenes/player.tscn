@@ -16,6 +16,8 @@
 [node name="player" type="CharacterBody3D"]
 collision_layer = 2
 script = ExtResource("1_ve6k1")
+WALK_SPEED = 4.0
+RUN_SPEED = 6.0
 
 [node name="stand_collider" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -31,7 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="stand_collider/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.240678, 0.116269)
-light_color = Color(1, 0.9055, 0.79, 1)
+light_color = Color(0.89, 1, 0.990833, 1)
 light_energy = 8.849
 shadow_enabled = true
 spot_range = 20.0
@@ -82,8 +84,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="UI_Crosshair"]
-modulate = Color(1, 0, 0.65, 1)
-self_modulate = Color(0.816667, 0, 1, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -125,8 +125,11 @@ script = ExtResource("6_1t8vm")
 
 [node name="Message Text" type="RichTextLabel" parent="UI_Crosshair/Message Panel"]
 layout_mode = 0
-offset_right = 1001.0
-offset_bottom = 1001.0
+offset_left = 27.0
+offset_top = 21.0
+offset_right = 1028.0
+offset_bottom = 1022.0
+scale = Vector2(0.920746, 0.949683)
 bbcode_enabled = true
 text = "[font_size=26][center] This is a test text. It should be large, legible, and readable. "
 
