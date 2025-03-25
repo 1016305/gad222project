@@ -131,7 +131,6 @@ grow_vertical = 2
 text = "You are looking at something."
 
 [node name="Message Panel" type="Panel" parent="UI_Crosshair"]
-visible = false
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = -135.0
