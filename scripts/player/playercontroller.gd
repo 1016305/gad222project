@@ -62,9 +62,17 @@ const MOVE_DRAG_SPEED = 15
 var hide_mouse: bool = false
 var momentum = Vector3.ZERO
 
+#stepping sound
+@export var step_interval_sec = 0.15
+@export var speed_threshold = 0.75
+@onready var footsteps: AudioStreamPlayer3D = $footsteps
+var _step_timer = 0.0
+@export var step_sounds: Array[AudioStream]
 
 
 func _ready() -> void:
+	_step_timer = step_interval_sec
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED) # Hide mouse
 	camera_3d.fov = DEFAULT_FOV
 	default_head_height = head.position.y
@@ -81,7 +89,17 @@ func _unhandled_input(event: InputEvent) -> void:
 		head.rotation.y = 0 # clamp rotation of head to 0 otherwise overreach causes control inversion during lean
 
 func _physics_process(delta: float) -> void:
-
+	if !is_sprinting:
+		step_interval_sec = 0.5
+	else:
+		step_interval_sec = 0.3
+	if is_on_floor() and velocity.length() > speed_threshold:
+		_step_timer -= delta
+		if _step_timer <= 0:
+			play_footstep()
+			_step_timer = step_interval_sec
+	else:
+		_step_timer = step_interval_sec
 	#Movement related functions
 	handle_gravity(delta)
 	handle_move(delta)
@@ -96,6 +114,7 @@ func _physics_process(delta: float) -> void:
 	coyote_time(was_on_floor) #MUST COME AFTER MOVE
 
 ## Movement Functions
+
 # Add the gravity.
 func handle_gravity(delta):
 	if not is_on_floor():
@@ -112,6 +131,7 @@ func handle_move(delta):
 	if direction:
 		velocity.x = direction.x * _get_current_speed()
 		velocity.z = direction.z * _get_current_speed()
+
 	else:
 		velocity.x = move_toward(velocity.x, 0,_get_current_speed())
 		velocity.z = move_toward(velocity.z, 0, _get_current_speed())
@@ -248,3 +268,13 @@ func _get_current_speed():
 #Function needed as edge friciton speed lerps smoothly.
 func _set_friction_mod(fric):
 	friction_mod = fric
+
+func play_footstep():
+	var last_sound
+	var play_random_sound = randf_range(0, step_sounds.size())
+	if last_sound == play_random_sound:
+		play_random_sound = randf_range(0, step_sounds.size())
+	last_sound = play_random_sound
+	footsteps.stream = step_sounds[play_random_sound]
+	footsteps.pitch_scale = randf_range(0.9, 1.1)
+	footsteps.play()

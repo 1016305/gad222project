@@ -1,9 +1,12 @@
-[color=gray][font_size=50]
+[color=gray][font_size=50]Cpt. Evan Richards of TUHI SPARS-12 | Log #0871 23/08/39
+[font_size=30]Standard weekly check in log. No primaries out of the ordinary.
 
-Another log that the player has found.
+The company has installed the mandated "AI Overseeer" during loading. Designated R.A.M.
 
-Logs will change to green if the player has read them, to avoid confusion over any missed notes.
+It would seem that they want to make sure we aren't slacking off during shipping, but CCTV would be more effective. Probably cheaper this way.
 
-Logs that signal the end of an area will include a message like this at the bottom.
+R.A.M. relays old company communications that the old systems didn't have the range to pick up.
+New safety precautions, updated security protocols, and such. It recommends weekly changing of access codes to prevent crew from accessing administration areas.
+Waste of time, but this kind of thing is out of my control now.
 
-[color=00FFFF][font_size=12] ACCESS CODES FOR DECK ELEVATOR EMBEDDED IN MESSAGE
+[color=00FFFF][font_size=20] ACCESS CODES FOR DECK ELEVATOR EMBEDDED IN MESSAGE

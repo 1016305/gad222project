@@ -1,3 +1,21 @@
-[color=gray][font_size=50]
+[color=gray][font_size=50]==================================
+SPARS-2 ONBOARD AUTOMATED CONTROL INTERFACE - R.A.M.
+[font_size=12]dump#A0CFFFFFF50
+[font_size=16]
+O2_sat...normal
+engine_temp...normal
+stab4_sys...normal
+intr_0...normal
+helcyc...normal
 
-Messages can be variously cryptic, informative, misleading, or intreiguing. They provide the player with small pieces of the narrative to gradually build the story.
+[font_size=50]
+Distance from Loading Site | 0.0032 ly
+Distance from Destination | 0.0084 ly
+ETA | 4m\23d\11h
+
+[CREW NOTES]
+[font_size=20]operation hash#3060F
+[font_size=30]Integrate with crew to facilitate optimal operation conditions.
+[font_size=50]Status: Pending.
+==================================
+

@@ -1,12 +1,48 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://cbhpmcs0sad6d"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://cnyvb5p0mc0to"]
 
-[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_ckk37"]
-resource_name = "Distortion"
-mode = 4
-pre_gain = 31.67
-drive = 0.55
-post_gain = -27.55
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_8fn0g"]
+resource_name = "Reverb"
+predelay_msec = 50.0
+predelay_feedback = 0.24
+room_size = 0.39
+damping = 0.38
+spread = 0.6
+wet = 0.48
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_u84h5"]
+resource_name = "Reverb"
+room_size = 0.54
+damping = 0.28
+dry = 0.94
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_a173a"]
+resource_name = "Reverb"
+room_size = 0.52
+damping = 0.71
+spread = 0.76
 
 [resource]
-bus/0/effect/0/effect = SubResource("AudioEffectDistortion_ckk37")
-bus/0/effect/0/enabled = true
+bus/1/name = &"PlayerSounds"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectReverb_8fn0g")
+bus/1/effect/0/enabled = true
+bus/2/name = &"Ambience"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectReverb_u84h5")
+bus/2/effect/0/enabled = true
+bus/3/name = &"DistantSounds"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"
+bus/3/effect/0/effect = SubResource("AudioEffectReverb_a173a")
+bus/3/effect/0/enabled = true

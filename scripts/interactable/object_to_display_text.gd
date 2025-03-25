@@ -5,8 +5,8 @@ var content
 
 var is_read: bool = false
 
-var mat1 = preload("res://materials/interactable_test_material.tres")
-var mat2 = preload("res://materials/interactable_test_material_done.tres")
+var mat1 = preload("res://assets/models/props/materials/Material.003.tres")
+var mat2 = preload("res://assets/models/props/materials/Material.004.tres")
 
 @export var trigger_next_zone: bool = false
 var signal_sent: bool = false
@@ -21,7 +21,7 @@ func load_from_file():
 	content = file.get_as_text()
 
 func change_color():
-	get_meshinstance3d_child().set_surface_override_material(0, mat2)
+	get_meshinstance3d_child().set_surface_override_material(1, mat2)
 	
 func get_meshinstance3d_child(): #grabs the mesh instacne 3d child to change the material
 	for child in get_children():

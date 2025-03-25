@@ -1,0 +1,120 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmbpx0b7ahi21"]
+
+[ext_resource type="FontFile" uid="uid://3x7nb3gswfwe" path="res://assets/fonts/bahnschrift.ttf" id="1_h3m2s"]
+[ext_resource type="Script" path="res://scripts/UI/instructions.gd" id="1_nckhq"]
+
+[node name="instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nckhq")
+
+[node name="instructions A" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -649.0
+offset_top = 23.0
+offset_right = 644.0
+offset_bottom = 1028.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("1_h3m2s")
+theme_override_fonts/mono_font = ExtResource("1_h3m2s")
+theme_override_fonts/italics_font = ExtResource("1_h3m2s")
+theme_override_fonts/bold_italics_font = ExtResource("1_h3m2s")
+theme_override_font_sizes/normal_font_size = 47
+bbcode_enabled = true
+text = "[i][color=EEEEEE]      USER# a05fg10a0c[/color][/i]
+
+You are a Class II Incident Insurance Investigator working for Lefeld & Lefeld on behalf of Terra Ulis Heavy Industries.
+
+The SPARS-2, a freighter ship transporting cargo between the Jovian Bodies and Mars has gone dark. They have missed the delivery window by more than two weeks, and none of the crew are responding.
+The SPARS-2 has NOT activated its SOS beacon, and initial scans indicate that the black box has been ejected, disabled, or otherwise removed.
+
+Investigate the SPARS-2, find out what happened to the crew, and return to the airlock to file a report
+Your clearance card should give you access to the personal logs of the crew, and any maintenance logs from the AI controller. This should assist with your investigation.
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="instructions A"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.5
+offset_top = -121.0
+offset_right = 61.5
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Next"
+
+[node name="instructions B" type="RichTextLabel" parent="."]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -649.0
+offset_top = 23.0
+offset_right = 644.0
+offset_bottom = 1074.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("1_h3m2s")
+theme_override_fonts/mono_font = ExtResource("1_h3m2s")
+theme_override_fonts/italics_font = ExtResource("1_h3m2s")
+theme_override_fonts/bold_italics_font = ExtResource("1_h3m2s")
+theme_override_font_sizes/normal_font_size = 47
+bbcode_enabled = true
+text = "[i][color=EEEEEE]      USER# a05fg10a0c[/color][/i]
+
+Use WASD to move around the ship.
+Hold SHIFT while moving to run.
+The SPARS-2 has lost primary power, so press F to use your flashlight.
+Search for clues, using E to interact with the environment.
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="Button2" type="Button" parent="instructions B"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.5
+offset_top = -167.0
+offset_right = 61.5
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 4
+z_index = -1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.12, 27.08)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="instructions A/Button" to="." method="_on_NEXT_press"]
+[connection signal="pressed" from="instructions B/Button2" to="." method="_on_START_press"]

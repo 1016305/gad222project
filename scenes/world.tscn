@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bhawo2tt7hdh"]
+[gd_scene load_steps=21 format=3 uid="uid://bhawo2tt7hdh"]
 
 [ext_resource type="Texture2D" uid="uid://lq7pkgn0plbv" path="res://assets/textures/texture_07.png" id="1_d551r"]
 [ext_resource type="Material" uid="uid://d30lclecniufh" path="res://assets/materials/devmat_orange.tres" id="2_rx6k8"]
@@ -9,8 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://bp5yth7de0lv" path="res://assets/models/testlevel.glb" id="7_0lhiv"]
 [ext_resource type="PackedScene" uid="uid://bntcwvfbhi5ya" path="res://assets/models/testlevelROOF.glb" id="8_6bpav"]
 [ext_resource type="Material" uid="uid://d1l0yu3j77fbu" path="res://materials/textBehindMaterial.tres" id="8_ioksr"]
-[ext_resource type="Material" uid="uid://b6ald11ru50p7" path="res://materials/interactable_test_material.tres" id="9_nas50"]
+[ext_resource type="ArrayMesh" uid="uid://bwrd3bhh6vqfl" path="res://assets/models/props/datapad.obj" id="10_7smxg"]
 [ext_resource type="Script" path="res://scripts/game_controller.gd" id="10_rltan"]
+[ext_resource type="Material" uid="uid://epcl6uo4ny8u" path="res://assets/models/props/materials/Material.001.tres" id="11_wfagn"]
+[ext_resource type="Material" uid="uid://bau18anjkwxm" path="res://assets/models/props/materials/Material.003.tres" id="12_4ci3v"]
+[ext_resource type="AudioStream" uid="uid://dyll8avt2di5m" path="res://assets/sounds/ambient/shipambience.wav" id="13_3p75s"]
+[ext_resource type="AudioStream" uid="uid://b1lvtsqid1qjx" path="res://assets/sounds/door_open_distant.wav" id="14_m2uaf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tcjux"]
 
@@ -31,11 +35,10 @@ albedo_texture = ExtResource("1_d551r")
 uv1_triplanar = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vxfes"]
-size = Vector3(1, 0.0898438, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_ta3n8"]
+size = Vector3(0.949341, 0.0898438, 0.626038)
 
 [node name="world" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.435207, 0, 0)
 
 [node name="pause_menu" parent="." instance=ExtResource("6_8r2fa")]
 
@@ -361,62 +364,111 @@ sides = 12
 [node name="interactables" type="Node3D" parent="stage/Greybox Test Level"]
 
 [node name="Log_00" type="StaticBody3D" parent="stage/Greybox Test Level/interactables"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03016, 28.2558, -9.12005)
+script = ExtResource("4_3ascu")
+unique_message = "res://messages/Deck_Test/Log_01.txt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/interactables/Log_00"]
+transform = Transform3D(0.885394, 0, 0.464842, 0, 1, 0, -0.464842, 0, 0.885394, -0.0429096, 0.00390625, -0.969065)
+shape = SubResource("BoxShape3D_vxfes")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/Greybox Test Level/interactables/Log_00"]
+transform = Transform3D(0.141973, 0, -0.26428, 0, 0.3, 0, 0.26428, 0, 0.141973, -0.0221915, -0.0112934, -0.965111)
+mesh = ExtResource("10_7smxg")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("11_wfagn")
+surface_material_override/1 = ExtResource("12_4ci3v")
+
+[node name="Log_01" type="StaticBody3D" parent="stage/Greybox Test Level/interactables"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03016, 29.1415, -18.6761)
 script = ExtResource("4_3ascu")
 unique_message = "res://messages/Deck_Test/Log_00.txt"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/interactables/Log_00"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00390625, 0)
-shape = SubResource("BoxShape3D_vxfes")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/Greybox Test Level/interactables/Log_00"]
-transform = Transform3D(1, 0, 0, 0, 0.081507, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_ta3n8")
-surface_material_override/0 = ExtResource("9_nas50")
-
-[node name="Log_01" type="StaticBody3D" parent="stage/Greybox Test Level/interactables"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.52743, 28.3049, -9.66978)
-script = ExtResource("4_3ascu")
-unique_message = "res://messages/Deck_Test/Log_01.txt"
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/interactables/Log_01"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00390625, 0)
+transform = Transform3D(0.885394, 0, 0.464842, 0, 1, 0, -0.464842, 0, 0.885394, -0.0429096, 0.00390625, -0.969065)
 shape = SubResource("BoxShape3D_vxfes")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="stage/Greybox Test Level/interactables/Log_01"]
-transform = Transform3D(1, 0, 0, 0, 0.081507, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_ta3n8")
-surface_material_override/0 = ExtResource("9_nas50")
+transform = Transform3D(0.141973, 0, -0.26428, 0, 0.3, 0, 0.26428, 0, 0.141973, -0.0221915, -0.0112934, -0.965111)
+mesh = ExtResource("10_7smxg")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("11_wfagn")
+surface_material_override/1 = ExtResource("12_4ci3v")
+
+[node name="Log_03" type="StaticBody3D" parent="stage/Greybox Test Level/interactables"]
+transform = Transform3D(-0.474979, 0, 0.879997, 0, 1, 0, -0.879997, 0, -0.474979, 8.55084, 31.0037, -15.0999)
+script = ExtResource("4_3ascu")
+unique_message = "res://messages/Deck_Test/Log_03.txt"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/interactables/Log_03"]
+transform = Transform3D(0.885394, 0, 0.464842, 0, 1, 0, -0.464842, 0, 0.885394, -0.0429096, 0.00390625, -0.969065)
+shape = SubResource("BoxShape3D_vxfes")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="stage/Greybox Test Level/interactables/Log_03"]
+transform = Transform3D(0.141973, 0, -0.26428, 0, 0.3, 0, 0.26428, 0, 0.141973, -0.0221915, -0.0112934, -0.965111)
+mesh = ExtResource("10_7smxg")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("11_wfagn")
+surface_material_override/1 = ExtResource("12_4ci3v")
 
 [node name="Log_02_f" type="StaticBody3D" parent="stage/Greybox Test Level/interactables"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.75265, 29.1177, -28.6539)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.09165, 29.1415, -27.5798)
 script = ExtResource("4_3ascu")
 unique_message = "res://messages/Deck_Test/Log_02.txt"
 trigger_next_zone = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/interactables/Log_02_f"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00390625, 0)
+transform = Transform3D(-0.130855, 0, 0.991401, 0, 1, 0, -0.991401, 0, -0.130855, -0.0429096, 0.00390625, -0.969065)
 shape = SubResource("BoxShape3D_vxfes")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="stage/Greybox Test Level/interactables/Log_02_f"]
-transform = Transform3D(1, 0, 0, 0, 0.081507, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_ta3n8")
-surface_material_override/0 = ExtResource("9_nas50")
+transform = Transform3D(0.297034, 0, 0.0420837, 0, 0.3, 0, -0.0420837, 0, 0.297034, -0.0221915, -0.0112934, -0.965111)
+mesh = ExtResource("10_7smxg")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("11_wfagn")
+surface_material_override/1 = ExtResource("12_4ci3v")
 
 [node name="game controller" type="Node3D" parent="stage/Greybox Test Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9847, 24.076, -36.8378)
 script = ExtResource("10_rltan")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="stage/Greybox Test Level/game controller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0129, 9.34753, 19.1494)
+stream = ExtResource("13_3p75s")
+attenuation_model = 3
+volume_db = -13.333
+unit_size = 32.85
+autoplay = true
+panning_strength = 0.0
+bus = &"Ambience"
+
+[node name="DistantDoorOpen" type="AudioStreamPlayer3D" parent="stage/Greybox Test Level/game controller"]
+stream = ExtResource("14_m2uaf")
+attenuation_model = 3
+volume_db = -7.439
+panning_strength = 0.15
+bus = &"DistantSounds"
+
+[node name="Timer" type="Timer" parent="stage/Greybox Test Level/game controller"]
+wait_time = 3.0
+one_shot = true
+
 [node name="doors" type="Node3D" parent="stage/Greybox Test Level"]
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="stage/Greybox Test Level/doors"]
 transform = Transform3D(0.928671, 0, 0, 0, 1, 0, 0, 0, 1, -0.0116496, 29.5939, -33.9088)
+use_collision = true
 size = Vector3(3.22168, 2.74463, 1)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="stage/Greybox Test Level/doors/CSGBox3D12"]
 transform = Transform3D(-1.07681, 0, 9.41375e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0125444, -0.47744, -3.83218)
 light_color = Color(0.0454133, 0.591735, 0.554705, 1)
 spot_range = 5.991
+
+[node name="Label3D" type="Label3D" parent="stage/Greybox Test Level/doors/CSGBox3D12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0168465, 0.937315, 0.539883)
+text = "-LOCKED-
+Access Codes Invalid"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="stage/Greybox Test Level/doors"]
 transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 6.14667, 29.7939, -29.0345)
@@ -441,7 +493,16 @@ spot_attenuation = 0.42
 spot_angle = 18.91
 spot_angle_attenuation = 9.18958
 
+[node name="Label3D" type="Label3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00399613, 29.5992, -38.8973)
+text = "From here, the player descends the stairs
+to access the lower decks, and continue
+their search for answers.
+This ends the playtest. Please press ESC
+and exit the game."
+
 [node name="player" parent="." instance=ExtResource("2_wqck2")]
 transform = Transform3D(0.046008, 0, 0.998941, 0, 1, 0, -0.998941, 0, 0.046008, 0.592, 28.3136, -2.827)
 
 [connection signal="iterate_progression_counter" from="stage/Greybox Test Level/interactables/Log_02_f" to="stage/Greybox Test Level/game controller" method="_iterate_progression_counter"]
+[connection signal="timeout" from="stage/Greybox Test Level/game controller/Timer" to="stage/Greybox Test Level/game controller" method="play_sound"]

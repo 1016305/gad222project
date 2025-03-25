@@ -7,6 +7,8 @@ var progression_counter = 0
 var default_string = "open_door_"
 var iterate_string
 @onready var door1: CSGBox3D = $"../doors/CSGBox3D12"
+@onready var distant_door_open: AudioStreamPlayer3D = $DistantDoorOpen
+@onready var timer: Timer = $Timer
 
 #ignore this. all dork ass code bc i was experimenting with calling methods from strings. literally the worst way to handle this. please.
 func _iterate_progression_counter() -> void:
@@ -23,10 +25,13 @@ func subfunction():
 
 func open_door_1():
 	door1.visible = false
-	#play sound or something
+	door1.use_collision = false
+	timer.start()
 	
 func open_door_2():
 	pass
 
 func open_door_3():
 	pass
+func play_sound():
+	distant_door_open.play()

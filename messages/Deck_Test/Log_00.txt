@@ -1,7 +1,10 @@
-[color=gray][font_size=50]
+[color=gray][font_size=50]FO. Molly Packins on the TUHI SPARS-12 | 24/08/39
+[font_size=30]Weekly check-in! Cargo loading delay of four hours, but nothing out of the ordinary.
 
-This is the first of many messages aboard the SPARS-2 that the player must find.
+The company installed the AI overseer during loading. I've heard from other freighters that these things are either legendary or absolute hell.
 
-Many are found on logs like this, although it is intended that this particular shade
-of blue contrasts with the environment, ensuring the player knows that anything
-matching the color will provide a text log.
+The Captain doesn't like it, but then again he wouldn't trust a digital watch to tell the time.
+
+A few new crew members on board. I wish the company still made them watch the training video. The number of times I have to tell these [font_size=20][color=red][REDACTED][color=gray][font_size=30] to stay out of the admin areas is getting ridiculous.
+
+Next two weeks will be spent writing up securities violations and dumping access logs. Yay.
