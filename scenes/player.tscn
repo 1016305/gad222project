@@ -49,12 +49,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 [node name="SpotLight3D" type="SpotLight3D" parent="stand_collider/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.240678, 0.116269)
 light_color = Color(0.89, 1, 0.990833, 1)
-light_energy = 8.849
 shadow_enabled = true
 spot_range = 20.0
-spot_attenuation = 2.0
+spot_attenuation = 1.5
 spot_angle = 34.56
 script = ExtResource("2_6q6cu")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="stand_collider/Head/SpotLight3D"]
+light_color = Color(0.912219, 0.902656, 0.886332, 1)
+light_energy = 0.0
+light_indirect_energy = 2.739
 
 [node name="InteractRaycast" type="RayCast3D" parent="stand_collider/Head"]
 target_position = Vector3(0, 0, -2)
@@ -128,7 +132,6 @@ offset_right = 81.0
 offset_bottom = 54.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "You are looking at something."
 
 [node name="Message Panel" type="Panel" parent="UI_Crosshair"]
 self_modulate = Color(0, 0, 0, 1)

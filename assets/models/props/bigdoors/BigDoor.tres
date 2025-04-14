@@ -1,0 +1,23 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://b7g0jjmwbg2nk"]
+
+[ext_resource type="Texture2D" uid="uid://r2oy4ddflhbm" path="res://assets/models/props/bigdoors/BigDoor_bigdoor_DefaultMaterial_BaseColor.png" id="1_nhp07"]
+[ext_resource type="Texture2D" uid="uid://b8lqy6sng6qmu" path="res://assets/models/props/bigdoors/BigDoor_bigdoor_DefaultMaterial_Metallic-bigdoor_DefaultMaterial_Roughness.png" id="2_02oif"]
+[ext_resource type="Texture2D" uid="uid://btgwhofpf5f27" path="res://assets/models/props/bigdoors/bigdoor_DefaultMaterial_EmissionMask.png" id="2_luusd"]
+[ext_resource type="Texture2D" uid="uid://i0i2u0ekppea" path="res://assets/models/props/bigdoors/BigDoor_bigdoor_DefaultMaterial_Normal.png" id="3_5hxtb"]
+
+[resource]
+resource_name = "BigDoor"
+cull_mode = 2
+albedo_texture = ExtResource("1_nhp07")
+metallic = 1.0
+metallic_texture = ExtResource("2_02oif")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_02oif")
+roughness_texture_channel = 1
+emission_enabled = true
+emission = Color(0.758043, 0.100995, 0.160682, 1)
+emission_operator = 1
+emission_texture = ExtResource("2_luusd")
+normal_enabled = true
+normal_texture = ExtResource("3_5hxtb")
+texture_filter = 2

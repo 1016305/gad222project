@@ -1,6 +1,8 @@
 extends Node
 
 @onready var spot_light_3d: SpotLight3D = $"."
+@onready var omni_light_3d: OmniLight3D = $OmniLight3D
+
 @onready var player_sounds: AudioStreamPlayer3D = $"../../../player_sounds"
 const LIGHT_SWITCH_81967 = preload("res://assets/sounds/light-switch-81967.mp3")
 
@@ -19,6 +21,8 @@ func toggle_flashlight():
 		player_sounds.play(0.0)
 	
 	if FLASHLIGHT_ON:
-		spot_light_3d.light_energy = 8
+		spot_light_3d.light_energy = 10
+		omni_light_3d.light_energy = 0.02
 	elif !FLASHLIGHT_ON:
 		spot_light_3d.light_energy = 0
+		omni_light_3d.light_energy = 0

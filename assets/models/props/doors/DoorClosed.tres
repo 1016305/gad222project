@@ -1,0 +1,23 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://dkquhcq6chvmh"]
+
+[ext_resource type="Texture2D" uid="uid://cd3wqcvjgy4w4" path="res://assets/models/props/doors/DoorClosed_door_DefaultMaterial_BaseColor.png" id="1_phwqw"]
+[ext_resource type="Texture2D" uid="uid://02lpc2gxsk62" path="res://assets/models/props/doors/door_DefaultMaterial_Emissive.png" id="2_70mcs"]
+[ext_resource type="Texture2D" uid="uid://p3umcud4xag5" path="res://assets/models/props/doors/DoorClosed_door_DefaultMaterial_Metallic-door_DefaultMaterial_Roughness.png" id="2_vqfbh"]
+[ext_resource type="Texture2D" uid="uid://qlmgj0rba3ml" path="res://assets/models/props/doors/DoorClosed_door_DefaultMaterial_Normal.png" id="3_djxml"]
+
+[resource]
+resource_name = "DoorClosed"
+cull_mode = 2
+albedo_texture = ExtResource("1_phwqw")
+metallic = 1.0
+metallic_texture = ExtResource("2_vqfbh")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_vqfbh")
+roughness_texture_channel = 1
+emission_enabled = true
+emission = Color(0.493001, 0.170123, 0.132888, 1)
+emission_operator = 1
+emission_texture = ExtResource("2_70mcs")
+normal_enabled = true
+normal_texture = ExtResource("3_djxml")
+texture_filter = 2
