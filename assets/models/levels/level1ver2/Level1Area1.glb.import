@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://chcmoa3h5gtcf"
+uid="uid://camrtfm1cumj1"
 path="res://.godot/imported/Level1Area1.glb-2dd432c6b82d852110731575ffeffbd8.scn"
 
 [deps]
@@ -31,6 +31,29 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"ShipInt_Walls1": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/levels/level1ver2/materials/ShipInt_Walls1.tres"
+},
+"ShipInt_Walls1.001": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/levels/level1ver2/materials/ShipInt_Walls1.001.tres"
+},
+"ShipInt_Walls1.002": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/levels/level1ver2/materials/ShipInt_Walls1.002.tres"
+},
+"ShipInt_Walls1.003": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/levels/level1ver2/materials/ShipInt_Walls1.003.tres"
+},
+"SleepingPod": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/models/levels/level1ver2/materials/SleepingPod.tres"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

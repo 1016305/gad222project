@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://bhawo2tt7hdh"]
+[gd_scene load_steps=48 format=4 uid="uid://bhawo2tt7hdh"]
 
 [ext_resource type="Texture2D" uid="uid://lq7pkgn0plbv" path="res://assets/textures/texture_07.png" id="1_d551r"]
 [ext_resource type="Material" uid="uid://d30lclecniufh" path="res://assets/materials/devmat_orange.tres" id="2_rx6k8"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bl3bqae2dhvcj" path="res://assets/models/levels/StairHelper.glb" id="4_khub1"]
 [ext_resource type="PackedScene" uid="uid://drhh8c73m42a4" path="res://scenes/pause_menu.tscn" id="6_8r2fa"]
 [ext_resource type="Material" uid="uid://d1l0yu3j77fbu" path="res://materials/textBehindMaterial.tres" id="8_ioksr"]
+[ext_resource type="PackedScene" uid="uid://cxh24chtda27x" path="res://assets/models/levels/StairHelper2.glb" id="9_lrlbl"]
 [ext_resource type="ArrayMesh" uid="uid://bwrd3bhh6vqfl" path="res://assets/models/props/datapad.obj" id="10_7smxg"]
 [ext_resource type="Script" path="res://scripts/game_controller.gd" id="10_rltan"]
 [ext_resource type="Material" uid="uid://epcl6uo4ny8u" path="res://assets/models/props/materials/Material.001.tres" id="11_wfagn"]
@@ -16,7 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://b1lvtsqid1qjx" path="res://assets/sounds/door_open_distant.wav" id="14_m2uaf"]
 [ext_resource type="PackedScene" uid="uid://prxybnvijsel" path="res://assets/models/props/doors/DoorClosed.glb" id="15_aaonx"]
 [ext_resource type="Texture2D" uid="uid://cep4oqcqb3fkf" path="res://assets/textures/TychoSkymap.t4_04096x02048-3930644765.jpg" id="16_0k6ce"]
-[ext_resource type="PackedScene" uid="uid://chcmoa3h5gtcf" path="res://assets/models/levels/level1ver2/Level1Area1.glb" id="16_15uq0"]
+[ext_resource type="PackedScene" uid="uid://camrtfm1cumj1" path="res://assets/models/levels/level1ver2/Level1Area1.glb" id="16_15uq0"]
 [ext_resource type="Script" path="res://scripts/interactable/door.gd" id="18_cr57u"]
 [ext_resource type="Material" uid="uid://ddwjitbc2uu64" path="res://assets/models/props/doors/DoorOpen.tres" id="19_bmiax"]
 [ext_resource type="AudioStream" uid="uid://cpa676m1exxmm" path="res://assets/sounds/doors/door_sound.mp3" id="20_1ards"]
@@ -217,6 +218,33 @@ data = PackedVector3Array(0.763583, 0.678695, 0.0503654, 1, 0.678695, -0.0615902
 [sub_resource type="BoxShape3D" id="BoxShape3D_8qv6w"]
 size = Vector3(4.27765, 1, 1.79761)
 
+[sub_resource type="Animation" id="Animation_73k2j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BigDoorR:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.331423, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BigDoorL:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.311187, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_t32dw"]
 resource_name = "big_door_open"
 length = 3.0
@@ -245,33 +273,6 @@ tracks/1/keys = {
 "values": [Vector3(-0.311187, 0, 0), Vector3(-1.4024, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_73k2j"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BigDoorR:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.331423, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BigDoorL:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.311187, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_buks7"]
 _data = {
 "RESET": SubResource("Animation_73k2j"),
@@ -292,12 +293,6 @@ shadow_enabled = true
 environment = SubResource("Environment_pm4qa")
 
 [node name="stage" type="Node3D" parent="."]
-
-[node name="Level1Area1" parent="stage" instance=ExtResource("16_15uq0")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4.30548, 33.5791, -22.3917)
-
-[node name="StairHelper" parent="stage/Level1Area1" instance=ExtResource("4_khub1")]
-visible = false
 
 [node name="Boundaries" type="Node3D" parent="stage"]
 
@@ -430,7 +425,34 @@ prompt_message = "Press \"E\" to Read"
 
 [node name="stage" type="Node3D" parent="stage/Greybox Test Level"]
 
+[node name="Level1Area1" parent="stage/Greybox Test Level/stage" instance=ExtResource("16_15uq0")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 4.30548, 33.5791, -22.3917)
+
+[node name="StairHelper" parent="stage/Greybox Test Level/stage/Level1Area1" instance=ExtResource("4_khub1")]
+visible = false
+
+[node name="StairHelper2" parent="stage/Greybox Test Level/stage/Level1Area1" instance=ExtResource("4_khub1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.991, -2.15, -8)
+visible = false
+
+[node name="StairHelper3" parent="stage/Greybox Test Level/stage/Level1Area1" instance=ExtResource("4_khub1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.991, -4.285, -8)
+visible = false
+
+[node name="StairHelper4" parent="stage/Greybox Test Level/stage/Level1Area1" instance=ExtResource("9_lrlbl")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.928, 2.121, -0.096)
+visible = false
+
+[node name="StairHelper5" parent="stage/Greybox Test Level/stage/Level1Area1" instance=ExtResource("9_lrlbl")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 1.928, 2.121, -10.376)
+visible = false
+
+[node name="StairHelper6" parent="stage/Greybox Test Level/stage/Level1Area1" instance=ExtResource("4_khub1")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -9.996, -6.42, -1.001)
+visible = false
+
 [node name="DoorLabels" type="Node3D" parent="stage/Greybox Test Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2452, 0, 0)
 
 [node name="DoorLabel01" type="CSGBox3D" parent="stage/Greybox Test Level/DoorLabels"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60254, 30.0228, -7.87944)
@@ -538,6 +560,7 @@ text = "Captain's Office"
 font_size = 50
 
 [node name="props" type="Node3D" parent="stage/Greybox Test Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.1585, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="stage/Greybox Test Level/props"]
 transform = Transform3D(0.928671, 0, 0, 0, 1, 0, 0, 0, 1, 7.8456, 29.5939, -8.14489)
@@ -596,6 +619,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.77673, 29.2996, -30.8941)
 sides = 12
 
 [node name="interactables" type="Node3D" parent="stage/Greybox Test Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6768, 0, 0)
 
 [node name="Log_00" type="StaticBody3D" parent="stage/Greybox Test Level/interactables"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03016, 28.2558, -9.12005)
@@ -663,7 +687,7 @@ surface_material_override/0 = ExtResource("11_wfagn")
 surface_material_override/1 = ExtResource("12_4ci3v")
 
 [node name="game controller" type="Node3D" parent="stage/Greybox Test Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9847, 24.076, -36.8378)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9847, 31.3301, -40.5045)
 script = ExtResource("10_rltan")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="stage/Greybox Test Level/game controller"]
@@ -690,7 +714,7 @@ one_shot = true
 [node name="doors" type="Node3D" parent="stage/Greybox Test Level"]
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="stage/Greybox Test Level/doors"]
-transform = Transform3D(0.928671, 0, 0, 0, 1, 0, 0, 0, 1, -0.0116496, 29.5939, -33.9088)
+transform = Transform3D(0.928671, 0, 0, 0, 1, 0, 0, 0, 1, -18.3636, 29.5662, -33.9066)
 use_collision = true
 size = Vector3(3.22168, 2.74463, 1)
 
@@ -704,31 +728,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0168465, 0.937315, 0.53988
 text = "-LOCKED-
 Access Codes Invalid"
 
-[node name="SpotLight3D" type="SpotLight3D" parent="stage/Greybox Test Level/doors"]
-transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 6.14667, 29.7939, -29.0345)
-light_energy = 1.232
-light_indirect_energy = 2.195
-light_volumetric_fog_energy = 0.745
-shadow_enabled = true
-spot_range = 8.601
-spot_attenuation = -0.74
-
 [node name="SpotLight3D2" type="SpotLight3D" parent="stage/Greybox Test Level/doors"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.99211, 31.3835, -18.8163)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -16.3598, 31.3558, -18.8141)
 light_energy = 0.652
 spot_attenuation = 0.42
 spot_angle = 18.91
 spot_angle_attenuation = 9.18958
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="stage/Greybox Test Level/doors"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.99211, 31.3835, -9.61694)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -16.3598, 31.3558, -9.61476)
 light_energy = 0.652
 spot_attenuation = 0.42
 spot_angle = 18.91
 spot_angle_attenuation = 9.18958
 
 [node name="Label3D" type="Label3D" parent="stage/Greybox Test Level/doors"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00399613, 29.5992, -38.8973)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.348, 29.5715, -38.8951)
 text = "From here, the player descends the stairs
 to access the lower decks, and continue
 their search for answers.
@@ -828,6 +843,347 @@ volume_db = -5.0
 max_distance = 20.0
 bus = &"PlayerSounds"
 
+[node name="DoorOpen4" type="Area3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 6.19306, 31.8531, -14.8851)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("18_cr57u")
+
+[node name="Door Open" type="MeshInstance3D" parent="stage/Greybox Test Level/doors/DoorOpen4"]
+mesh = SubResource("ArrayMesh_o2vnd")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stage/Greybox Test Level/doors/DoorOpen4/Door Open"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen4/Door Open/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_kb311")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Greybox Test Level/doors/DoorOpen4"]
+libraries = {
+"": SubResource("AnimationLibrary_lrkje")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00318408, 0.0916443, 0.00012207)
+shape = SubResource("BoxShape3D_fcj7w")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="stage/Greybox Test Level/doors/DoorOpen4"]
+stream = ExtResource("20_1ards")
+attenuation_model = 3
+volume_db = -5.0
+max_distance = 20.0
+bus = &"PlayerSounds"
+
+[node name="DoorOpen5" type="Area3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 6.19306, 31.8531, -19.3944)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("18_cr57u")
+
+[node name="Door Open" type="MeshInstance3D" parent="stage/Greybox Test Level/doors/DoorOpen5"]
+mesh = SubResource("ArrayMesh_o2vnd")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stage/Greybox Test Level/doors/DoorOpen5/Door Open"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen5/Door Open/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_kb311")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Greybox Test Level/doors/DoorOpen5"]
+libraries = {
+"": SubResource("AnimationLibrary_lrkje")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00318408, 0.0916443, 0.00012207)
+shape = SubResource("BoxShape3D_fcj7w")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="stage/Greybox Test Level/doors/DoorOpen5"]
+stream = ExtResource("20_1ards")
+attenuation_model = 3
+volume_db = -5.0
+max_distance = 20.0
+bus = &"PlayerSounds"
+
+[node name="DoorOpen6" type="Area3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 6.19306, 31.8531, -23.8945)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("18_cr57u")
+
+[node name="Door Open" type="MeshInstance3D" parent="stage/Greybox Test Level/doors/DoorOpen6"]
+mesh = SubResource("ArrayMesh_o2vnd")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stage/Greybox Test Level/doors/DoorOpen6/Door Open"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen6/Door Open/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_kb311")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Greybox Test Level/doors/DoorOpen6"]
+libraries = {
+"": SubResource("AnimationLibrary_lrkje")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00318408, 0.0916443, 0.00012207)
+shape = SubResource("BoxShape3D_fcj7w")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="stage/Greybox Test Level/doors/DoorOpen6"]
+stream = ExtResource("20_1ards")
+attenuation_model = 3
+volume_db = -5.0
+max_distance = 20.0
+bus = &"PlayerSounds"
+
+[node name="DoorOpen7" type="Area3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 6.19306, 31.8531, -28.3944)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("18_cr57u")
+
+[node name="Door Open" type="MeshInstance3D" parent="stage/Greybox Test Level/doors/DoorOpen7"]
+mesh = SubResource("ArrayMesh_o2vnd")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stage/Greybox Test Level/doors/DoorOpen7/Door Open"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen7/Door Open/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_kb311")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Greybox Test Level/doors/DoorOpen7"]
+libraries = {
+"": SubResource("AnimationLibrary_lrkje")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00318408, 0.0916443, 0.00012207)
+shape = SubResource("BoxShape3D_fcj7w")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="stage/Greybox Test Level/doors/DoorOpen7"]
+stream = ExtResource("20_1ards")
+attenuation_model = 3
+volume_db = -5.0
+max_distance = 20.0
+bus = &"PlayerSounds"
+
+[node name="DoorOpen8" type="Area3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 2.45952, 31.8531, -23.9096)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("18_cr57u")
+
+[node name="Door Open" type="MeshInstance3D" parent="stage/Greybox Test Level/doors/DoorOpen8"]
+mesh = SubResource("ArrayMesh_o2vnd")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stage/Greybox Test Level/doors/DoorOpen8/Door Open"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen8/Door Open/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_kb311")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Greybox Test Level/doors/DoorOpen8"]
+libraries = {
+"": SubResource("AnimationLibrary_lrkje")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00318408, 0.0916443, 0.00012207)
+shape = SubResource("BoxShape3D_fcj7w")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="stage/Greybox Test Level/doors/DoorOpen8"]
+stream = ExtResource("20_1ards")
+attenuation_model = 3
+volume_db = -5.0
+max_distance = 20.0
+bus = &"PlayerSounds"
+
+[node name="DoorOpen9" type="Area3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 2.45952, 31.8531, -19.4094)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("18_cr57u")
+
+[node name="Door Open" type="MeshInstance3D" parent="stage/Greybox Test Level/doors/DoorOpen9"]
+mesh = SubResource("ArrayMesh_o2vnd")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stage/Greybox Test Level/doors/DoorOpen9/Door Open"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen9/Door Open/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_kb311")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Greybox Test Level/doors/DoorOpen9"]
+libraries = {
+"": SubResource("AnimationLibrary_lrkje")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00318408, 0.0916443, 0.00012207)
+shape = SubResource("BoxShape3D_fcj7w")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="stage/Greybox Test Level/doors/DoorOpen9"]
+stream = ExtResource("20_1ards")
+attenuation_model = 3
+volume_db = -5.0
+max_distance = 20.0
+bus = &"PlayerSounds"
+
+[node name="DoorOpen10" type="Area3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(-1.5, 0, -1.31134e-07, 0, 1.5, 0, 1.31134e-07, 0, -1.5, 2.45952, 31.8531, -14.9096)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("18_cr57u")
+
+[node name="Door Open" type="MeshInstance3D" parent="stage/Greybox Test Level/doors/DoorOpen10"]
+mesh = SubResource("ArrayMesh_o2vnd")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stage/Greybox Test Level/doors/DoorOpen10/Door Open"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen10/Door Open/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_kb311")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Greybox Test Level/doors/DoorOpen10"]
+libraries = {
+"": SubResource("AnimationLibrary_lrkje")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00318408, 0.0916443, 0.00012207)
+shape = SubResource("BoxShape3D_fcj7w")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="stage/Greybox Test Level/doors/DoorOpen10"]
+stream = ExtResource("20_1ards")
+attenuation_model = 3
+volume_db = -5.0
+max_distance = 20.0
+bus = &"PlayerSounds"
+
+[node name="DoorOpen11" type="Area3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(-6.55671e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.55671e-08, 2.06733, 22.3163, -21.9924)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("18_cr57u")
+
+[node name="Door Open" type="MeshInstance3D" parent="stage/Greybox Test Level/doors/DoorOpen11"]
+mesh = SubResource("ArrayMesh_o2vnd")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stage/Greybox Test Level/doors/DoorOpen11/Door Open"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen11/Door Open/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_kb311")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Greybox Test Level/doors/DoorOpen11"]
+libraries = {
+"": SubResource("AnimationLibrary_lrkje")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00318408, 0.0916443, 0.00012207)
+shape = SubResource("BoxShape3D_fcj7w")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="stage/Greybox Test Level/doors/DoorOpen11"]
+stream = ExtResource("20_1ards")
+attenuation_model = 3
+volume_db = -5.0
+max_distance = 20.0
+bus = &"PlayerSounds"
+
+[node name="DoorOpen12" type="Area3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 2.06733, 22.3163, -25.7383)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("18_cr57u")
+
+[node name="Door Open" type="MeshInstance3D" parent="stage/Greybox Test Level/doors/DoorOpen12"]
+mesh = SubResource("ArrayMesh_o2vnd")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stage/Greybox Test Level/doors/DoorOpen12/Door Open"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen12/Door Open/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_kb311")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Greybox Test Level/doors/DoorOpen12"]
+libraries = {
+"": SubResource("AnimationLibrary_lrkje")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00318408, 0.0916443, 0.00012207)
+shape = SubResource("BoxShape3D_fcj7w")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="stage/Greybox Test Level/doors/DoorOpen12"]
+stream = ExtResource("20_1ards")
+attenuation_model = 3
+volume_db = -5.0
+max_distance = 20.0
+bus = &"PlayerSounds"
+
+[node name="DoorOpen13" type="Area3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -12.9289, 22.3163, -25.7383)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("18_cr57u")
+
+[node name="Door Open" type="MeshInstance3D" parent="stage/Greybox Test Level/doors/DoorOpen13"]
+mesh = SubResource("ArrayMesh_o2vnd")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stage/Greybox Test Level/doors/DoorOpen13/Door Open"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen13/Door Open/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_kb311")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Greybox Test Level/doors/DoorOpen13"]
+libraries = {
+"": SubResource("AnimationLibrary_lrkje")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00318408, 0.0916443, 0.00012207)
+shape = SubResource("BoxShape3D_fcj7w")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="stage/Greybox Test Level/doors/DoorOpen13"]
+stream = ExtResource("20_1ards")
+attenuation_model = 3
+volume_db = -5.0
+max_distance = 20.0
+bus = &"PlayerSounds"
+
+[node name="DoorOpen14" type="Area3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -20.4196, 22.3163, -25.7383)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("18_cr57u")
+
+[node name="Door Open" type="MeshInstance3D" parent="stage/Greybox Test Level/doors/DoorOpen14"]
+mesh = SubResource("ArrayMesh_o2vnd")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stage/Greybox Test Level/doors/DoorOpen14/Door Open"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen14/Door Open/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_kb311")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="stage/Greybox Test Level/doors/DoorOpen14"]
+libraries = {
+"": SubResource("AnimationLibrary_lrkje")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/DoorOpen14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00318408, 0.0916443, 0.00012207)
+shape = SubResource("BoxShape3D_fcj7w")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="stage/Greybox Test Level/doors/DoorOpen14"]
+stream = ExtResource("20_1ards")
+attenuation_model = 3
+volume_db = -5.0
+max_distance = 20.0
+bus = &"PlayerSounds"
+
 [node name="Airlock_Door" type="Area3D" parent="stage/Greybox Test Level/doors"]
 transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 4.2882, 35.0389, -9.63163)
 collision_layer = 2
@@ -865,12 +1221,86 @@ libraries = {
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="stage/Greybox Test Level/doors/Airlock_Door"]
 stream = ExtResource("21_ri2ll")
+bus = &"PlayerSounds"
+
+[node name="Airlock_Door2" type="Area3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 4.2882, 31.8093, -12.8865)
+collision_layer = 2
+collision_mask = 2
+
+[node name="BigDoorR" type="MeshInstance3D" parent="stage/Greybox Test Level/doors/Airlock_Door2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.331423, 0, 0)
+mesh = SubResource("ArrayMesh_jcq53")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stage/Greybox Test Level/doors/Airlock_Door2/BigDoorR"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/Airlock_Door2/BigDoorR/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_gi38x")
+
+[node name="BigDoorL" type="MeshInstance3D" parent="stage/Greybox Test Level/doors/Airlock_Door2"]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -0.311187, 0, 0)
+mesh = SubResource("ArrayMesh_20bd3")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stage/Greybox Test Level/doors/Airlock_Door2/BigDoorL"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/Airlock_Door2/BigDoorL/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wof8d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/Airlock_Door2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0102232, 0, 0.710083)
+shape = SubResource("BoxShape3D_8qv6w")
+
+[node name="Airlock_Door3" type="Area3D" parent="stage/Greybox Test Level/doors"]
+transform = Transform3D(-6.11959e-08, 0, 1.4, 0, 1.4, 0, -1.4, 0, -6.11959e-08, -24.9053, 22.2922, -23.8829)
+collision_layer = 2
+collision_mask = 2
+
+[node name="BigDoorR" type="MeshInstance3D" parent="stage/Greybox Test Level/doors/Airlock_Door3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.331423, 0, 0)
+mesh = SubResource("ArrayMesh_jcq53")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stage/Greybox Test Level/doors/Airlock_Door3/BigDoorR"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/Airlock_Door3/BigDoorR/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_gi38x")
+
+[node name="BigDoorL" type="MeshInstance3D" parent="stage/Greybox Test Level/doors/Airlock_Door3"]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -0.311187, 0, 0)
+mesh = SubResource("ArrayMesh_20bd3")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="stage/Greybox Test Level/doors/Airlock_Door3/BigDoorL"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/Airlock_Door3/BigDoorL/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_wof8d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="stage/Greybox Test Level/doors/Airlock_Door3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0102232, 0, 0.710083)
+shape = SubResource("BoxShape3D_8qv6w")
 
 [node name="DoorClosed" parent="stage/Greybox Test Level" instance=ExtResource("15_aaonx")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.4361, 35.0742, -20.1469)
 
 [node name="DoorClosed2" parent="stage/Greybox Test Level" instance=ExtResource("15_aaonx")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.4361, 35.0742, -14.1354)
+
+[node name="DoorClosed5" parent="stage/Greybox Test Level" instance=ExtResource("15_aaonx")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -5.07213, 28.6397, -33.6205)
+
+[node name="DoorClosed6" parent="stage/Greybox Test Level" instance=ExtResource("15_aaonx")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -5.07213, 28.6397, -29.1292)
+
+[node name="DoorClosed7" parent="stage/Greybox Test Level" instance=ExtResource("15_aaonx")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -5.07213, 28.6397, -24.6538)
+
+[node name="DoorClosed8" parent="stage/Greybox Test Level" instance=ExtResource("15_aaonx")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -5.40741, 22.2975, -22.0011)
+
+[node name="DoorClosed9" parent="stage/Greybox Test Level" instance=ExtResource("15_aaonx")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, -5.40741, 22.2975, -25.73)
 
 [node name="DoorClosed3" parent="stage/Greybox Test Level" instance=ExtResource("15_aaonx")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.4361, 35.0742, -32.1697)
@@ -879,7 +1309,7 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.4361, 35.0742, -32.16
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 2.4361, 35.0742, -26.1582)
 
 [node name="player" parent="." instance=ExtResource("2_wqck2")]
-transform = Transform3D(0.998941, 0, -0.046008, 0, 1, 0, 0.046008, 0, 0.998941, 4.30076, 33.9105, -5.70561)
+transform = Transform3D(0.998941, 0, -0.046008, 0, 1, 0, 0.046008, 0, 0.998941, -1.65887, 31.6341, -30.5652)
 
 [connection signal="iterate_progression_counter" from="stage/Greybox Test Level/interactables/Log_02_f" to="stage/Greybox Test Level/game controller" method="_iterate_progression_counter"]
 [connection signal="timeout" from="stage/Greybox Test Level/game controller/Timer" to="stage/Greybox Test Level/game controller" method="play_sound"]
@@ -889,4 +1319,28 @@ transform = Transform3D(0.998941, 0, -0.046008, 0, 1, 0, 0.046008, 0, 0.998941, 
 [connection signal="body_exited" from="stage/Greybox Test Level/doors/DoorOpen2" to="stage/Greybox Test Level/doors/DoorOpen2" method="_on_body_exited"]
 [connection signal="body_entered" from="stage/Greybox Test Level/doors/DoorOpen3" to="stage/Greybox Test Level/doors/DoorOpen3" method="_on_body_entered"]
 [connection signal="body_exited" from="stage/Greybox Test Level/doors/DoorOpen3" to="stage/Greybox Test Level/doors/DoorOpen3" method="_on_body_exited"]
+[connection signal="body_entered" from="stage/Greybox Test Level/doors/DoorOpen4" to="stage/Greybox Test Level/doors/DoorOpen4" method="_on_body_entered"]
+[connection signal="body_exited" from="stage/Greybox Test Level/doors/DoorOpen4" to="stage/Greybox Test Level/doors/DoorOpen4" method="_on_body_exited"]
+[connection signal="body_entered" from="stage/Greybox Test Level/doors/DoorOpen5" to="stage/Greybox Test Level/doors/DoorOpen5" method="_on_body_entered"]
+[connection signal="body_exited" from="stage/Greybox Test Level/doors/DoorOpen5" to="stage/Greybox Test Level/doors/DoorOpen5" method="_on_body_exited"]
+[connection signal="body_entered" from="stage/Greybox Test Level/doors/DoorOpen6" to="stage/Greybox Test Level/doors/DoorOpen6" method="_on_body_entered"]
+[connection signal="body_exited" from="stage/Greybox Test Level/doors/DoorOpen6" to="stage/Greybox Test Level/doors/DoorOpen6" method="_on_body_exited"]
+[connection signal="body_entered" from="stage/Greybox Test Level/doors/DoorOpen7" to="stage/Greybox Test Level/doors/DoorOpen7" method="_on_body_entered"]
+[connection signal="body_exited" from="stage/Greybox Test Level/doors/DoorOpen7" to="stage/Greybox Test Level/doors/DoorOpen7" method="_on_body_exited"]
+[connection signal="body_entered" from="stage/Greybox Test Level/doors/DoorOpen8" to="stage/Greybox Test Level/doors/DoorOpen8" method="_on_body_entered"]
+[connection signal="body_exited" from="stage/Greybox Test Level/doors/DoorOpen8" to="stage/Greybox Test Level/doors/DoorOpen8" method="_on_body_exited"]
+[connection signal="body_entered" from="stage/Greybox Test Level/doors/DoorOpen9" to="stage/Greybox Test Level/doors/DoorOpen9" method="_on_body_entered"]
+[connection signal="body_exited" from="stage/Greybox Test Level/doors/DoorOpen9" to="stage/Greybox Test Level/doors/DoorOpen9" method="_on_body_exited"]
+[connection signal="body_entered" from="stage/Greybox Test Level/doors/DoorOpen10" to="stage/Greybox Test Level/doors/DoorOpen10" method="_on_body_entered"]
+[connection signal="body_exited" from="stage/Greybox Test Level/doors/DoorOpen10" to="stage/Greybox Test Level/doors/DoorOpen10" method="_on_body_exited"]
+[connection signal="body_entered" from="stage/Greybox Test Level/doors/DoorOpen11" to="stage/Greybox Test Level/doors/DoorOpen11" method="_on_body_entered"]
+[connection signal="body_exited" from="stage/Greybox Test Level/doors/DoorOpen11" to="stage/Greybox Test Level/doors/DoorOpen11" method="_on_body_exited"]
+[connection signal="body_entered" from="stage/Greybox Test Level/doors/DoorOpen12" to="stage/Greybox Test Level/doors/DoorOpen12" method="_on_body_entered"]
+[connection signal="body_exited" from="stage/Greybox Test Level/doors/DoorOpen12" to="stage/Greybox Test Level/doors/DoorOpen12" method="_on_body_exited"]
+[connection signal="body_entered" from="stage/Greybox Test Level/doors/DoorOpen13" to="stage/Greybox Test Level/doors/DoorOpen13" method="_on_body_entered"]
+[connection signal="body_exited" from="stage/Greybox Test Level/doors/DoorOpen13" to="stage/Greybox Test Level/doors/DoorOpen13" method="_on_body_exited"]
+[connection signal="body_entered" from="stage/Greybox Test Level/doors/DoorOpen14" to="stage/Greybox Test Level/doors/DoorOpen14" method="_on_body_entered"]
+[connection signal="body_exited" from="stage/Greybox Test Level/doors/DoorOpen14" to="stage/Greybox Test Level/doors/DoorOpen14" method="_on_body_exited"]
 [connection signal="body_entered" from="stage/Greybox Test Level/doors/Airlock_Door" to="stage/Greybox Test Level/doors/Airlock_Door" method="_on_body_entered"]
+[connection signal="body_entered" from="stage/Greybox Test Level/doors/Airlock_Door2" to="stage/Greybox Test Level/doors/Airlock_Door2" method="_on_body_entered"]
+[connection signal="body_entered" from="stage/Greybox Test Level/doors/Airlock_Door3" to="stage/Greybox Test Level/doors/Airlock_Door3" method="_on_body_entered"]

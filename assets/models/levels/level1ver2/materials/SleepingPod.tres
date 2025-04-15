@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://drj215fvm7m4u"]
+
+[ext_resource type="Texture2D" uid="uid://3ujx3k4gjfdy" path="res://assets/models/levels/level1ver2/Level1Area1_sleepingpod_BaseColor.png" id="1_o2tml"]
+
+[resource]
+resource_name = "SleepingPod"
+cull_mode = 2
+albedo_texture = ExtResource("1_o2tml")
+roughness = 0.5
+texture_filter = 2
