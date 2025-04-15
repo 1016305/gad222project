@@ -1,0 +1,24 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://bcxls4jxxe3yy"]
+
+[ext_resource type="Texture2D" uid="uid://c4koya3l2ply3" path="res://assets/models/props/signs/signsmaterial/signs_basecolor.png" id="1_0fvgp"]
+[ext_resource type="Texture2D" uid="uid://ddjhwpfy0kt6c" path="res://assets/models/props/signs/signsmaterial/signs_emissionMap.png" id="2_lbxsr"]
+[ext_resource type="Texture2D" uid="uid://ckvh54hjht157" path="res://assets/models/props/signs/signsmaterial/signs_metallic.png" id="3_cvwwv"]
+[ext_resource type="Texture2D" uid="uid://btust46daj3ix" path="res://assets/models/props/signs/signsmaterial/signs_normal.png" id="4_6rrny"]
+[ext_resource type="Texture2D" uid="uid://4ehncjtkm0h3" path="res://assets/models/props/signs/signsmaterial/signs_rough.png" id="5_e7cem"]
+
+[resource]
+resource_name = "Signs"
+cull_mode = 2
+albedo_texture = ExtResource("1_0fvgp")
+metallic = 0.49
+metallic_specular = 0.0
+metallic_texture = ExtResource("3_cvwwv")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("5_e7cem")
+roughness_texture_channel = 1
+emission_enabled = true
+emission_energy_multiplier = 0.5
+emission_texture = ExtResource("2_lbxsr")
+normal_enabled = true
+normal_texture = ExtResource("4_6rrny")
+texture_filter = 2

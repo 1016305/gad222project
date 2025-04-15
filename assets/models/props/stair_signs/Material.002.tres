@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://bylp27kj7s1s6"]
+
+[ext_resource type="Texture2D" uid="uid://c4g7jtfq8wi0v" path="res://assets/models/props/stair_signs/deck4-up_bigsign_basecolor.png" id="1_fchwq"]
+[ext_resource type="Texture2D" uid="uid://dahmfu5b63acm" path="res://assets/models/props/stair_signs/deck4-up_bigsign_emission.png" id="2_5ljdl"]
+[ext_resource type="Texture2D" uid="uid://cx82awbmm350a" path="res://assets/models/props/stair_signs/deck4-up_bigsign_metallic-bigsign_rough.png" id="3_i3f5h"]
+[ext_resource type="Texture2D" uid="uid://cm5hrelryftb2" path="res://assets/models/props/stair_signs/deck4-up_bigsign_normal.png" id="4_rofa4"]
+
+[resource]
+resource_name = "Material.002"
+cull_mode = 2
+albedo_texture = ExtResource("1_fchwq")
+metallic = 1.0
+metallic_texture = ExtResource("3_i3f5h")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_i3f5h")
+roughness_texture_channel = 1
+emission_enabled = true
+emission_texture = ExtResource("2_5ljdl")
+normal_enabled = true
+normal_texture = ExtResource("4_rofa4")
+texture_filter = 2

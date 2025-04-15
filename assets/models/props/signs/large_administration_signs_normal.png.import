@@ -1,0 +1,37 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bakdpd1nvphbm"
+path="res://.godot/imported/large_administration_signs_normal.png-32f591df0bb34d490140f6004f76fc0a.ctex"
+metadata={
+"vram_texture": false
+}
+generator_parameters={
+"md5": "34d71988622f91e77b92a17f62fd13cd"
+}
+
+[deps]
+
+source_file="res://assets/models/props/signs/large_administration_signs_normal.png"
+dest_files=["res://.godot/imported/large_administration_signs_normal.png-32f591df0bb34d490140f6004f76fc0a.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://assets/models/props/signs/large_administration_signs_normal.png"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

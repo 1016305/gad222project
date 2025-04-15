@@ -6,7 +6,7 @@ extends Node3D
 var progression_counter = 0
 var default_string = "open_door_"
 var iterate_string
-@onready var door1: CSGBox3D = $"../doors/CSGBox3D12"
+#@onready var door1: CSGBox3D = $"../doors/CSGBox3D12"
 @onready var distant_door_open: AudioStreamPlayer3D = $DistantDoorOpen
 @onready var timer: Timer = $Timer
 
@@ -24,9 +24,10 @@ func subfunction():
 	callable.call()
 
 func open_door_1():
-	door1.visible = false
-	door1.use_collision = false
-	timer.start()
+	pass
+	#door1.visible = false
+	#door1.use_collision = false
+	#timer.start()
 	
 func open_door_2():
 	pass

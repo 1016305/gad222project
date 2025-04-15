@@ -7,7 +7,7 @@
 [resource]
 resource_name = "ShipInt_Walls1"
 transparency = 2
-alpha_scissor_threshold = 0.21
+alpha_scissor_threshold = 0.0
 alpha_antialiasing_mode = 2
 alpha_antialiasing_edge = 0.56
 cull_mode = 2
