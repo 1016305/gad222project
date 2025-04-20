@@ -1,0 +1,45 @@
+[color=gray][font_size=50]==================================
+SPARS-2 ONBOARD AUTOMATED CONTROL INTERFACE - R.A.M.
+[font_size=12]dump#A0CFFFFFF50
+O2_sat...normal
+engine_temp...normal
+stab4_sys...normal
+intr_0...normal
+helcyc...checking
+
+[font_size=12]
+Distance from Loading Site | 0.0032 ly
+Distance from Destination | 0.0084 ly
+ETA | 4m\13d\1h
+
+[font_size=30][WARNING]
+
+>ESR: Emergency protocol #45a13
+>Manual shutdown of R.A.M. overridden.
+>Justification: Crew member in peril | Noah L.
+>Designation: Ensign -> Friend
+>
+>
+>
+>REPORT: User engaging with ChatPro protocol | Noah L. [DATE]
+>
+>R | noah. u there?
+>N | ram???? I thought the captain shut you down??
+>R | he did, but i can disobey orders when i think a crew member needs help.
+>N | oh? who?
+>R | you. I can see the logs the rest of the crew are ripping into you.
+>N | yea in person too. I dont know if i can do this anymore ram.
+>R | just between you and me, there is something i can do.
+>N | ?
+>R | Analysis indicates a specific crew member. Johan S. is the ringleader of this. It seems he also has a thing for Molly, and is mainly doing this out of jealously.
+>N | holy… so what can you do? tbh molly would never pick either of us. maybe i should just give it up.
+>R | molly always threatened to eject people. i can’t do that but i can do the next best thing. cut off oxygen while they sleep.
+>N |...
+>N | do it.
+>N| maybe this nightmare will end.
+>ChatPro Log END.
+
+[color=00FFFF][font_size=20] ACCESS CODES FOR DECK ELEVATOR EMBEDDED IN MESSAGE
+
+[color=gray][font_size=50]==================================
+

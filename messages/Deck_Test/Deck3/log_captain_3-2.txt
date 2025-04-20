@@ -1,0 +1,3 @@
+[color=gray][font_size=50]Cpt. Evan Richards of TUHI SPARS-12 | Log #0884 03/09/39
+[font_size=30]
+R.A.M. reports that we’ve lost airflow in parts of the ship, but won’t tell me where? If there is damage to the hull it needs to be fixed A.S.A.P, but manual scans show no compromise in hull integrity anywhere. Beginning a manual pressure check on every deck until I find out what is going on.

@@ -1,0 +1,37 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dpjns5umafgl6"
+path="res://.godot/imported/desk_desk_DefaultMaterial_Metallic.png-desk_DefaultMaterial_Roughness.png-5f00e69a2dbf7aa1bfb6fbb26f3bda0c.ctex"
+metadata={
+"vram_texture": false
+}
+generator_parameters={
+"md5": "68fafa44aa1320e5f63ae47390ac223d"
+}
+
+[deps]
+
+source_file="res://assets/models/props/textures/desk_desk_DefaultMaterial_Metallic.png-desk_DefaultMaterial_Roughness.png"
+dest_files=["res://.godot/imported/desk_desk_DefaultMaterial_Metallic.png-desk_DefaultMaterial_Roughness.png-5f00e69a2dbf7aa1bfb6fbb26f3bda0c.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

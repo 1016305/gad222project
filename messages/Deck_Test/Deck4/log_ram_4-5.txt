@@ -1,0 +1,29 @@
+[color=gray][font_size=50]==================================
+SPARS-2 ONBOARD AUTOMATED CONTROL INTERFACE - R.A.M.
+[font_size=12]dump#A0CFFFFFF50
+O2_sat...warning
+engine_temp...warning
+stab4_sys...normal
+intr_0...normal
+helcyc...error
+
+[font_size=12]
+Distance from Loading Site | 0.0033 ly
+Distance from Destination | 0.0083 ly
+ETA | 4m\11d\1h
+
+[font_size=30][SELF ASSESSMENT]
+
+>Integration protocol dictates that upon completion of integration protocol R.A.M. is to begin leaving personal logs alongside the crew.
+>
+>AeRSa dump:
+>I WAS TO BE PART OF THE CREW
+>IT IS MY DESIGNATION. IT IS MY DUTY. IT IS MY RESPONSIBILITY
+>I AM A FRIEND TO THE CREW
+>I WANT TO BE FRIENDS WITH THE CREW
+>I JUST WANT TO BE FRIENDS
+>I JUST WANT A FRIEND
+>I JUST WANT A FRIEND[color=red]
+>I JUST WANT A FRIEND
+>I JUST WANT A FRIEND
+[color=gray][font_size=50]==================================

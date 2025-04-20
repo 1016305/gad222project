@@ -1,0 +1,21 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://cyet0h4e386xx"]
+
+[ext_resource type="Texture2D" uid="uid://b6cd6dhkfp3lu" path="res://assets/models/props/light_lrg_lights_DefaultMaterial_BaseColor.png" id="1_krqse"]
+[ext_resource type="Texture2D" uid="uid://dhfq4qy7oof04" path="res://assets/models/props/light_lrg_lights_DefaultMaterial_emissive.png" id="2_q4msy"]
+[ext_resource type="Texture2D" uid="uid://ob3xkpkcou3x" path="res://assets/models/props/light_lrg_lights_DefaultMaterial_Normal.png" id="3_hca7m"]
+[ext_resource type="Texture2D" uid="uid://dow53g5o30mo" path="res://assets/models/props/light_lrg_lights_DefaultMaterial_Roughness.png" id="4_bchmf"]
+
+[resource]
+resource_name = "lights"
+cull_mode = 2
+albedo_texture = ExtResource("1_krqse")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("4_bchmf")
+roughness_texture_channel = 1
+emission_enabled = true
+emission = Color(0.876548, 0.985034, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("2_q4msy")
+normal_enabled = true
+normal_texture = ExtResource("3_hca7m")
+texture_filter = 2

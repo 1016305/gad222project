@@ -7,8 +7,11 @@ var is_read: bool = false
 
 var mat1 = preload("res://assets/models/props/materials/Material.003.tres")
 var mat2 = preload("res://assets/models/props/materials/Material.004.tres")
+var mat3 = preload("res://assets/models/props/materials/monitor.tres")
+var mat4 = preload("res://assets/models/props/materials/monitor_read.tres")
 
 @export var trigger_next_zone: bool = false
+@export var is_monitor: bool = false
 var signal_sent: bool = false
 signal iterate_progression_counter
 
@@ -21,7 +24,10 @@ func load_from_file():
 	content = file.get_as_text()
 
 func change_color():
-	get_meshinstance3d_child().set_surface_override_material(1, mat2)
+	if !is_monitor:
+		get_meshinstance3d_child().set_surface_override_material(1, mat2)
+	if is_monitor:
+		get_meshinstance3d_child().set_surface_override_material(0, mat4)
 	
 func get_meshinstance3d_child(): #grabs the mesh instacne 3d child to change the material
 	for child in get_children():

@@ -1,0 +1,30 @@
+[color=gray][font_size=50]==================================
+SPARS-2 ONBOARD AUTOMATED CONTROL INTERFACE - R.A.M.
+[font_size=12]dump#A0CFFFFFF50
+O2_sat...normal
+engine_temp...normal
+stab4_sys...normal
+intr_0...normal
+helcyc...normal
+
+[font_size=12]
+Distance from Loading Site | 0.0032 ly
+Distance from Destination | 0.0084 ly
+ETA | 4m\21d\1h
+
+[font_size=30][CREW NOTES]
+
+>REPORT: User engaging with ChatPro protocol | Noah L. [DATE]
+>
+>N | hello ram. they say im supposed to talk to you
+>R | Hello Noah. How are you? Yes that’s true! Talking to me helps me integrate better with the ship, and the crew at large. You’re doing a big part in helping with this just by chatting with me, well done!
+>N | thanks :) is anyone else talking to you or is it just me?
+>R | Unfortunately I can’t disclose that information. How are you finding your time on the ship?
+>N | not great so far. a lot of the other new guys are giving me a hard time. not sure what I can do about it.
+>R | That’s unfortunate to hear, Noah. First Officer Molly Packins is the designated disciplinary overseer for the SPARS-2. Have you filed a complaint with her?
+>N | no, but she did threaten to throw them out of the airlock when she saw them with me. i think she knows but doesn’t care.
+>R | I don’t think FO. Packins has that authority, but she was probably joking. Would you like me to file a formal report?
+>N | yes please ram that would be great :) 
+>LOG CONTINUES FOR [211] MORE MESSAGES.
+
+[color=gray][font_size=50]==================================

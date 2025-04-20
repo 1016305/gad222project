@@ -1,0 +1,22 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://eec31g6qhtxu"]
+
+[ext_resource type="Texture2D" uid="uid://4fgjx56r7vcr" path="res://assets/models/props/textures/lamp_lamp_DefaultMaterial_BaseColor.png" id="1_uw3c4"]
+[ext_resource type="Texture2D" uid="uid://cki2gx0xkywa5" path="res://assets/models/props/textures/lamp_DefaultMaterial_Emission.png" id="2_8a5xi"]
+[ext_resource type="Texture2D" uid="uid://deaarxwkqt58" path="res://assets/models/props/textures/lamp_lamp_DefaultMaterial_Metallic.png-lamp_DefaultMaterial_Roughness.png" id="3_xlj21"]
+[ext_resource type="Texture2D" uid="uid://jg5thtcoaerq" path="res://assets/models/props/textures/lamp_lamp_DefaultMaterial_Normal.png" id="4_nyqh8"]
+
+[resource]
+resource_name = "lamp"
+cull_mode = 2
+albedo_texture = ExtResource("1_uw3c4")
+metallic = 1.0
+metallic_texture = ExtResource("3_xlj21")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_xlj21")
+roughness_texture_channel = 1
+emission = Color(1, 1, 1, 1)
+emission_operator = 1
+emission_texture = ExtResource("2_8a5xi")
+normal_enabled = true
+normal_texture = ExtResource("4_nyqh8")
+texture_filter = 2

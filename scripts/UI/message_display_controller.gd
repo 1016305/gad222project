@@ -11,7 +11,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("toggle_pause_menu") && message_panel.visible:
+		message_panel.visible = !message_panel.visible
+		player.disable_movement = !player.disable_movement
 
 
 func _on_interact_raycast_on_interact_interactable(content) -> void:

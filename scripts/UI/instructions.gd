@@ -4,6 +4,7 @@ extends Control
 @onready var instructions_b: RichTextLabel = $"instructions B"
 const WORLD = preload("res://scenes/world.tscn")
 
+
 func _on_NEXT_press():
 	instructions_a.hide()
 	instructions_b.show()

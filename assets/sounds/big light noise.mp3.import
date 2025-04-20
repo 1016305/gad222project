@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bl58jhyslt8v7"
+path="res://.godot/imported/big light noise.mp3-225fd73da032b64cc1c2bb2e32024baf.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/big light noise.mp3"
+dest_files=["res://.godot/imported/big light noise.mp3-225fd73da032b64cc1c2bb2e32024baf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

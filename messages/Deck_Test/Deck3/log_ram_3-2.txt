@@ -1,0 +1,30 @@
+[color=gray][font_size=50]==================================
+SPARS-2 ONBOARD AUTOMATED CONTROL INTERFACE - R.A.M.
+[font_size=12]dump#A0CFFFFFF50
+O2_sat...normal
+engine_temp...normal
+stab4_sys...normal
+intr_0...normal
+helcyc...checking
+
+[font_size=12]
+Distance from Loading Site | 0.0032 ly
+Distance from Destination | 0.0084 ly
+ETA | 4m\13d\22h
+
+[font_size=30][CREW NOTES]
+
+>REPORT: User engaging with ChatPro protocol | Noah L. [DATE]
+>
+>R | noah? You havent talked in a while, are you okay?
+>N | oh wow ram i didnt know you could start chats with me.
+>N | yea im okay just feeling a little down
+>R | anything I can help with?
+>N | I just want a friend ram. i try to talk with the other guys and they all put me down. i cant talk to molly becuase shes always busy upstairs. Im just lonely man
+>R | i consider you a friend, noah.
+>N | thats
+>N | wow. Thank you dude that actually means a lot to me.
+>R | No problem :). If you need anything please let me know. I’m here for you.
+>LOG CONTINUES FOR [11] MORE MESSAGES
+
+[color=gray][font_size=50]==================================

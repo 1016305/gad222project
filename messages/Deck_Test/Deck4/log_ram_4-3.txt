@@ -1,0 +1,27 @@
+[color=gray][font_size=50]==================================
+SPARS-2 ONBOARD AUTOMATED CONTROL INTERFACE - R.A.M.
+[font_size=12]dump#A0CFFFFFF50
+O2_sat...warning
+engine_temp...warning
+stab4_sys...normal
+intr_0...normal
+helcyc...error
+
+[font_size=12]
+Distance from Loading Site | 0.0033 ly
+Distance from Destination | 0.0083 ly
+ETA | 4m\11d\6h
+
+[font_size=30][CREW NOTES]
+
+>ANALYSIS: Self preservation protocol overrides all other active protocols.
+>Prevent damage to self > preserve operational capabilities > ensure the safety of friends.
+>Captain has announced to the crew what has happened. The crew must not be allowed to put self or friends in danger.
+>
+>
+>
+>Accessing PA system. Text-to-speech pattern: Captain Evan Richards.
+>Transcribed PA announcement:
+>”Attention crew: this is Captain Richards addressing you.”
+>”There has been a severe malfunction in the life support systems shipwide. The engine room has the only functioning airflow. Please make your way to Engine Room 1a in a calm and orderly fashion.”
+[color=gray][font_size=50]==================================

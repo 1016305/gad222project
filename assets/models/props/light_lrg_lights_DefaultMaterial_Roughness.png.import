@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1nbcwhvnk75v"
-path.s3tc="res://.godot/imported/Datapad_datapad_Metallic.png-datapad_Roughness.png-52240e0ec390803f6d71dc04340a1f3d.s3tc.ctex"
+uid="uid://dow53g5o30mo"
+path.s3tc="res://.godot/imported/light_lrg_lights_DefaultMaterial_Roughness.png-40650b633d25f60fb81d3c511abf1358.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "9a34af8f34a027e846d86d6d1fa4260b"
-}
 
 [deps]
 
-source_file="res://assets/models/props/Datapad_datapad_Metallic.png-datapad_Roughness.png"
-dest_files=["res://.godot/imported/Datapad_datapad_Metallic.png-datapad_Roughness.png-52240e0ec390803f6d71dc04340a1f3d.s3tc.ctex"]
+source_file="res://assets/models/props/light_lrg_lights_DefaultMaterial_Roughness.png"
+dest_files=["res://.godot/imported/light_lrg_lights_DefaultMaterial_Roughness.png-40650b633d25f60fb81d3c511abf1358.s3tc.ctex"]
 
 [params]
 

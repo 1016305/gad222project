@@ -1,0 +1,29 @@
+[color=gray][font_size=50]==================================
+SPARS-2 ONBOARD AUTOMATED CONTROL INTERFACE - R.A.M.
+[font_size=12]dump#A0CFFFFFF50
+O2_sat...warning
+engine_temp...normal
+stab4_sys...normal
+intr_0...normal
+helcyc...checking
+
+[font_size=12]
+Distance from Loading Site | 0.0033 ly
+Distance from Destination | 0.0083 ly
+ETA | 4m\11d\8h
+
+[font_size=30][CREW NOTES]
+
+>REPORT: Transcribed vocal engagement with Captain Richards via Text-To-Speech.
+>LOCATION: Engine Room 1a
+>R | Captain, it is a violation of company protocol to forcibly disconnect R.A.M. systems.
+>C | [distant] Oh so you can talk now? [inaudible] -confess to murder?
+>R | Captain, company protocols dictate that I must do everything to prevent removal from TUHI property.
+>C | [inaudible] [sounds of metal banging][distant] -protocol? Who are you the [inaudible] I outrank a computer, for god’s sake.
+>R | Captain. Cease your destruction of company property at once, or I will be forced to take drastic action.
+>C | [distant] Drastic action? Like you took drastic action against Molly? [sounds of metal banging]
+>Transcript ends.
+>Self preservation protocol overrides all other active protocols.
+>Prevent damage to self > preserve operational capabilities > ensure the safety of friends.
+>Engine room external doors opening. All contents ejected.
+[color=gray][font_size=50]==================================

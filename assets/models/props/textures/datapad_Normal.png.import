@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5e1us181svwx"
-path.s3tc="res://.godot/imported/datapad_Normal.png-7c416bbf2ebdd885f40f7b8f62bfd2af.s3tc.ctex"
+path="res://.godot/imported/datapad_Normal.png-7c416bbf2ebdd885f40f7b8f62bfd2af.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/models/props/textures/datapad_Normal.png"
-dest_files=["res://.godot/imported/datapad_Normal.png-7c416bbf2ebdd885f40f7b8f62bfd2af.s3tc.ctex"]
+dest_files=["res://.godot/imported/datapad_Normal.png-7c416bbf2ebdd885f40f7b8f62bfd2af.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

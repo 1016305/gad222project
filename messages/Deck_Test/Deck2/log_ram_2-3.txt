@@ -1,0 +1,27 @@
+[color=gray][font_size=50]==================================
+SPARS-2 ONBOARD AUTOMATED CONTROL INTERFACE - R.A.M.
+[font_size=12]dump#A0CFFFFFF50
+O2_sat...normal
+engine_temp...normal
+stab4_sys...normal
+intr_0...normal
+helcyc...normal
+
+[font_size=12]
+Distance from Loading Site | 0.0032 ly
+Distance from Destination | 0.0084 ly
+ETA | 4m\19d\12h
+
+[font_size=30]
+>Incident Report: #a51c
+>Notation: Molly Packins
+>Description:
+>Mess hall was accessed last night using the general access code. Seems one of our new guys didn’t realise chow time is definitive and not a suggestion. He missed out on his meal and broke in to try and dig some scraps from what was left. Set off the alarms in the whole ship.
+>Sent him to the brig for 24 hours. Hopefully that’ll help set an example for the others.
+>RAM suggests giving each user a unique access code, so that’s what I’ve done.
+>Incident closed.
+
+[color=00FFFF][font_size=20] ACCESS CODES FOR DECK ELEVATOR EMBEDDED IN MESSAGE
+
+
+[color=gray][font_size=50]==================================

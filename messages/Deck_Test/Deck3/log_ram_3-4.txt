@@ -1,0 +1,28 @@
+[color=gray][font_size=50]==================================
+SPARS-2 ONBOARD AUTOMATED CONTROL INTERFACE - R.A.M.
+[font_size=12]dump#A0CFFFFFF50
+O2_sat...normal
+engine_temp...normal
+stab4_sys...normal
+intr_0...normal
+helcyc...checking
+
+[font_size=12]
+Distance from Loading Site | 0.0033 ly
+Distance from Destination | 0.0083 ly
+ETA | 4m\12d\0h
+
+[font_size=30][WARNING]
+
+>Habitation deck unit S0Ra1 Oxygen distribution system status: Nominal
+>R.A.M. override #441acf - Emergency selective distribution.
+>WARNING. This protocol is only to be used in case of severe hull damage, and airflow to selected rooms of the ship must be carefully controlled. Do you wish to continue? Y/N
+>Y
+>Please select the room(s) which require distribution control.
+>Deck2\Hab\qtr003
+>Deactivate
+
+[color=gray][font_size=50]==================================
+
+
+

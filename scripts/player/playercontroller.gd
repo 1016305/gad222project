@@ -8,6 +8,7 @@ extends CharacterBody3D
 @onready var coyote_timer: Timer = $coyote_timer
 @onready var edge_friction_check: RayCast3D = $edge_friction_check
 @onready var lean_check: ShapeCast3D = $stand_collider/lean_check
+@onready var fullscreen_message: Label = $UI_Crosshair/fullscreen_message
 
 #World constants for override
 const NEW_GRAVITY = Vector3(0, -20, 0)
@@ -103,7 +104,7 @@ func _physics_process(delta: float) -> void:
 	#Movement related functions
 	handle_gravity(delta)
 	handle_move(delta)
-	handle_jump()
+	#handle_jump()
 	#handle_crouch(delta)
 	handle_sprint(delta)
 	#head_roll(input_dir, delta)
@@ -278,3 +279,5 @@ func play_footstep():
 	footsteps.stream = step_sounds[play_random_sound]
 	footsteps.pitch_scale = randf_range(0.9, 1.1)
 	footsteps.play()
+func toggle_final_message():
+	fullscreen_message.visible = !fullscreen_message.visible

@@ -1,0 +1,35 @@
+[color=gray][font_size=50]==================================
+SPARS-2 ONBOARD AUTOMATED CONTROL INTERFACE - R.A.M.
+[font_size=12]dump#A0CFFFFFF50
+O2_sat...normal
+engine_temp...normal
+stab4_sys...normal
+intr_0...normal
+helcyc...checking
+
+[font_size=12]
+Distance from Loading Site | 0.0032 ly
+Distance from Destination | 0.0084 ly
+ETA | 4m\14d\12h
+
+[font_size=30][CREW NOTES]
+
+>REPORT: User engaging with ChatPro protocol | Noah L. [DATE]
+>
+>N | hi ram hows it going
+>R | Not bad Noah, how about you?
+>N | things are a little better i guess. Makes it easier that i can talk to you when i need to
+>R | I can see that. How are you finding your work on the ship?
+>N | ngl ram im a little distracted at times.
+>R | What’s distracting you? Is the crew breathing down your neck again?
+>N | no lol nothing like that. you dont share these logs with anyone do you?
+>R | These are confidential. Used only by me to inform training data.
+>N | haha good. i need to get this off my chest
+>N | i think I have a thing for molly :) 
+>R | Ah, I see someone has a crush.
+>N | haha maybe… she’s so pretty tho. can’t get any work done when shes around.
+>R | I would be careful. She is your superior officer after all.
+>N | ik ik. It would be nice tho…
+>LOG CONTINUES FOR [58] MORE MESSAGES
+
+[color=gray][font_size=50]==================================

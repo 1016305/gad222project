@@ -2,24 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2clayq2nltk1"
-path.s3tc="res://.godot/imported/Datapad_datapad_BaseColor.png-17b4d656c4b12e70a50d03b669befe56.s3tc.ctex"
+uid="uid://cve50omcjti7x"
+path="res://.godot/imported/pooltable_pooltable_DefaultMaterial_BaseColor.png-b5145380a4ee3fdba22859c672ac5fb1.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
-"md5": "0fb6486644271a1938c7592968f649fc"
+"md5": "bd712b966128e7c719f550e496727dcb"
 }
 
 [deps]
 
-source_file="res://assets/models/props/Datapad_datapad_BaseColor.png"
-dest_files=["res://.godot/imported/Datapad_datapad_BaseColor.png-17b4d656c4b12e70a50d03b669befe56.s3tc.ctex"]
+source_file="res://assets/models/props/pooltable_pooltable_DefaultMaterial_BaseColor.png"
+dest_files=["res://.godot/imported/pooltable_pooltable_DefaultMaterial_BaseColor.png-b5145380a4ee3fdba22859c672ac5fb1.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

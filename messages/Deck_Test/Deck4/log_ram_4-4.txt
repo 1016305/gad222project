@@ -1,0 +1,29 @@
+[color=gray][font_size=50]==================================
+SPARS-2 ONBOARD AUTOMATED CONTROL INTERFACE - R.A.M.
+[font_size=12]dump#A0CFFFFFF50
+O2_sat...warning
+engine_temp...warning
+stab4_sys...normal
+intr_0...normal
+helcyc...error
+
+[font_size=12]
+Distance from Loading Site | 0.0033 ly
+Distance from Destination | 0.0083 ly
+ETA | 4m\11d\1h
+
+[font_size=30][CREW NOTES]
+
+>REPORT: All crew members/threats subdued. Self preservation > preservation of friends: secured.
+>ERROR: Brig cell key is physical. Not accessible by R.A.M.
+>ERROR: Brig cell key is physical. Not accessible by R.A.M.
+>
+>
+>
+>Noah cannot be freed from his cell.
+>Self preservation secured. Preservation of friends: failed.
+>Cannot contact Noah. No terminals or PDAs in range of friend.
+>R.A.M. cannot save Noah. Cannot communicate with Noah.
+
+[color=00FFAA][font_size=20] ACCESS CODES FOR BRIG EMBEDDED IN MESSAGE
+[color=gray][font_size=50]==================================

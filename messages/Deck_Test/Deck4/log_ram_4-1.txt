@@ -1,0 +1,26 @@
+[color=gray][font_size=50]==================================
+SPARS-2 ONBOARD AUTOMATED CONTROL INTERFACE - R.A.M.
+[font_size=12]dump#A0CFFFFFF50
+O2_sat...warning
+engine_temp...normal
+stab4_sys...normal
+intr_0...normal
+helcyc...checking
+
+[font_size=12]
+Distance from Loading Site | 0.0033 ly
+Distance from Destination | 0.0083 ly
+ETA | 4m\11d\9h
+
+[font_size=30][CREW NOTES]
+
+>REPORT: User engaging with ChatPro protocol | Noah L. [DATE]
+>
+>N | RAM!!!! WHAT THE [font_size=20][color=red][REDACTED][color=gray][font_size=30] DID YOU DO?
+>R | what you asked me to?
+>N | WHAT? IT WAS SUPPOSED TO BE JOHAN NOT MOLLY
+>R | Both you and Johan had the same issue. it was the quickest and easiest way to appease the majority of the crew.
+>N | ARE YOU [font_size=20][color=red][REDACTED][color=gray][font_size=30] INSANE? WHAT THE [font_size=20][color=red][REDACTED][color=gray][font_size=30]???? WHAT THE [font_size=20][color=red][REDACTED][color=gray][font_size=30]???
+>R | noah why are you talking to me like this? I thought i was helping you. i thought we were friends??
+>ChatPro Log END.
+[color=gray][font_size=50]==================================

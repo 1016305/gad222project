@@ -1,0 +1,91 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpr6edy8gudg8"]
+
+[ext_resource type="Script" path="res://scripts/UI/credits.gd" id="1_c0g32"]
+[ext_resource type="FontFile" uid="uid://3x7nb3gswfwe" path="res://assets/fonts/bahnschrift.ttf" id="2_hv4ch"]
+
+[node name="instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c0g32")
+
+[node name="instructions A" type="RichTextLabel" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -649.0
+offset_top = 23.0
+offset_right = 644.0
+offset_bottom = 1006.0
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("2_hv4ch")
+theme_override_fonts/mono_font = ExtResource("2_hv4ch")
+theme_override_fonts/italics_font = ExtResource("2_hv4ch")
+theme_override_fonts/bold_italics_font = ExtResource("2_hv4ch")
+theme_override_font_sizes/normal_font_size = 47
+bbcode_enabled = true
+text = "[center]
+
+
+Thank you for playing Abandoned in the Abyss!
+
+
+
+Art, Programming, and Sound Design by Nik Walsh
+
+Human Model by libblekibble from FAB
+
+Playtesting by the GAD222 Cohort
+
+Special thanks to the PS1 Graphics Discord, and the Godot Discord for helping squash bugs
+"
+fit_content = true
+scroll_active = false
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="instructions A"]
+process_mode = 3
+z_index = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.5
+offset_top = -121.0
+offset_right = 61.5
+offset_bottom = -44.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Exit"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+process_mode = 4
+z_index = -1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(48.12, 27.08)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+z_index = 4
+layout_mode = 0
+offset_right = 1923.0
+offset_bottom = 1083.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="pressed" from="instructions A/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
